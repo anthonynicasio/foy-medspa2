@@ -95,21 +95,21 @@ export function LandingPage() {
               aria-label="Search"
               className="inline-flex h-9 w-9 items-center justify-center border border-transparent text-zinc-900 transition hover:border-zinc-300"
             >
-              <Search className="h-4.5 w-4.5" strokeWidth={1.75} />
+              <Search className="h-4 w-4" strokeWidth={1.75} />
             </button>
             <button
               type="button"
               aria-label="Shopping bag"
               className="inline-flex h-9 w-9 items-center justify-center border border-transparent text-zinc-900 transition hover:border-zinc-300"
             >
-              <ShoppingBag className="h-4.5 w-4.5" strokeWidth={1.75} />
+              <ShoppingBag className="h-4 w-4" strokeWidth={1.75} />
             </button>
             <button
               type="button"
               aria-label="Book appointment"
               className="inline-flex h-9 w-9 items-center justify-center border border-transparent text-zinc-900 transition hover:border-zinc-300"
             >
-              <BookOpen className="h-4.5 w-4.5" strokeWidth={1.75} />
+              <BookOpen className="h-4 w-4" strokeWidth={1.75} />
             </button>
           </div>
         </div>
