@@ -64,57 +64,57 @@ const staffMembers = [
   {
     name: 'Jaimie Green',
     title: 'BSN, RN CME, Laser Specialist, Owner',
-    image: '/images/medspa/confident-portrait.jpg',
+    image: '/images/staff/jaimie-green.jpg',
   },
   {
     name: 'Eric Pulsfus, M.D.',
     title: 'Medical Director',
-    image: '/images/medspa/hero-calm-face.jpg',
+    image: '/images/staff/eric-pulsfus-md.jpeg',
   },
   {
     name: 'Brittney Day',
     title: 'FNP-C Aesthetic Nurse Practitioner',
-    image: '/images/medspa/soft-reflection-face.jpg',
+    image: '/images/staff/brittney-day.jpg',
   },
   {
     name: 'Catherine Seneca',
     title: 'FNP-C Aesthetic Nurse Practitioner',
-    image: '/images/medspa/radiant-skin-detail.jpg',
+    image: '/images/staff/catherine-seneca.jpg',
   },
   {
     name: 'Lynn Spain',
     title: 'BSN, RN, CME Laser Specialist',
-    image: '/images/medspa/light-skin-detail.jpg',
+    image: '/images/staff/lynn-spain.jpg',
   },
   {
     name: 'Sarah Green',
     title: 'BSN, RN, CME Laser Specialist',
-    image: '/images/medspa/facial-treatment.jpg',
+    image: '/images/staff/sarah-green.jpeg',
   },
   {
     name: 'Shannon Woodside',
     title: 'Medical Aesthetician',
-    image: '/images/medspa/provider-mask-treatment.jpg',
+    image: '/images/staff/shannon-woodside.jpg',
   },
   {
     name: 'Savannah Stokes',
     title: 'CME, Medical Aesthetician',
-    image: '/images/medspa/confident-portrait.jpg',
+    image: '/images/staff/savannah-stokes.jpg',
   },
   {
     name: 'Taylor Waters',
     title: 'Medical Aesthetician',
-    image: '/images/medspa/soft-reflection-face.jpg',
+    image: '/images/staff/taylor-waters.jpg',
   },
   {
     name: 'Carol Staples',
     title: 'Manager',
-    image: '/images/medspa/hero-calm-face.jpg',
+    image: '/images/staff/carol-staples.jpg',
   },
   {
     name: 'Olivia Berarducci',
     title: 'Nurse Intern',
-    image: '/images/medspa/radiant-skin-detail.jpg',
+    image: '/images/staff/olivia-berarducci.jpeg',
   },
 ];
 
