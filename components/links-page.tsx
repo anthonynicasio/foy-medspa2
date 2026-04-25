@@ -16,15 +16,12 @@ import LiteYouTubeEmbed from "react-lite-youtube-embed";
 import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 import { Button } from "@/components/ui/button";
-import { CyclingWords } from "@/components/ui/cycling-words";
-import { Glow } from "@/components/ui/glow";
 import { cn } from "@/lib/utils";
 
 const phone = "(904) 295-4595";
 const phoneHref = "tel:+19042954595";
 const email = "stauglaser@gmail.com";
 const bookingUrl = "https://booking.mangomint.com/737916";
-const heroWords = ["book.", "glow.", "save.", "connect."];
 
 const videos = [
   {
@@ -180,90 +177,6 @@ function LinksPage() {
   return (
     <div className="surface-cream grain min-h-screen overflow-hidden pb-24 text-espresso sm:pb-0">
       <main>
-        <section className="relative overflow-hidden px-5 pb-16 pt-10 sm:px-8 lg:px-10 lg:pb-24 lg:pt-14">
-          <Glow variant="top" className="-z-10 opacity-90" />
-          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <p className="font-display text-3xl tracking-tight sm:text-4xl">Fountain of Youth Spa</p>
-            <p className="mt-6 text-[0.68rem] font-semibold uppercase tracking-[0.32em] text-clay">
-              St. Augustine + Jax Beach · Since 1999
-            </p>
-
-            <h1 className="mt-8 flex max-w-3xl flex-col items-center font-display text-[4.4rem] leading-[0.98] tracking-[-0.045em] text-espresso sm:text-[6rem] lg:text-[7.5rem]">
-              <span>Your place to</span>
-              <CyclingWords
-                words={heroWords}
-                reserveWord="connect."
-                align="center"
-                className="max-w-full text-clay"
-                itemClassName="font-semibold"
-              />
-            </h1>
-
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-espresso/70">
-              A simple hub for booking, treatment videos, rewards, financing, and care.
-            </p>
-
-            <div className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-              <Button
-                asChild
-                size="lg"
-                className="h-14 rounded-full bg-espresso px-8 text-xs font-bold uppercase tracking-[0.22em] text-cream shadow-soft hover:bg-clay"
-              >
-                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                  Book Now
-                </a>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="h-14 rounded-full border-espresso/20 bg-white/55 px-8 text-xs font-semibold uppercase tracking-[0.22em] text-espresso shadow-sm backdrop-blur hover:border-clay hover:bg-white hover:text-clay"
-              >
-                <a href={phoneHref}>Call {phone}</a>
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        <Reveal className="surface-espresso grain-light relative overflow-hidden px-5 py-28 text-cream sm:px-8 lg:px-10 lg:py-36">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-10">
-              <p className="text-xs font-semibold uppercase tracking-[0.36em] text-blush">See the work</p>
-              <h2 className="mt-5 font-display text-5xl font-medium leading-none tracking-[0.015em] sm:text-6xl">
-                Treatments, demystified.
-              </h2>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-2">
-              {videos.map((video) => (
-                <article
-                  key={video.id}
-                  className="overflow-hidden rounded-[2rem] border border-cream/10 bg-cream/[0.04] p-3 shadow-soft"
-                >
-                  <p className="px-2 pb-3 pt-1 text-xs font-semibold uppercase tracking-[0.3em] text-blush">
-                    {video.label}
-                  </p>
-                  <div className="overflow-hidden rounded-[1.45rem] bg-espresso">
-                    {video.src ? (
-                      <video
-                        className="aspect-video w-full object-cover"
-                        src={video.src}
-                        poster={video.poster}
-                        controls
-                        playsInline
-                        preload="metadata"
-                        aria-label={video.title}
-                      />
-                    ) : (
-                      <LiteYouTubeEmbed id={video.id} title={video.title} poster="maxresdefault" noCookie />
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-
         <Reveal className="surface-cream-soft grain relative overflow-hidden px-5 py-28 sm:px-8 lg:px-10 lg:py-36">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 max-w-3xl">
@@ -352,6 +265,45 @@ function LinksPage() {
                   </ExternalAnchor>
                 );
               })}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal className="surface-espresso grain-light relative overflow-hidden px-5 py-28 text-cream sm:px-8 lg:px-10 lg:py-36">
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-10">
+              <p className="text-xs font-semibold uppercase tracking-[0.36em] text-blush">See the work</p>
+              <h2 className="mt-5 font-display text-5xl font-medium leading-none tracking-[0.015em] sm:text-6xl">
+                Treatments, demystified.
+              </h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2">
+              {videos.map((video) => (
+                <article
+                  key={video.id}
+                  className="overflow-hidden rounded-[2rem] border border-cream/10 bg-cream/[0.04] p-3 shadow-soft"
+                >
+                  <p className="px-2 pb-3 pt-1 text-xs font-semibold uppercase tracking-[0.3em] text-blush">
+                    {video.label}
+                  </p>
+                  <div className="overflow-hidden rounded-[1.45rem] bg-espresso">
+                    {video.src ? (
+                      <video
+                        className="aspect-video w-full object-cover"
+                        src={video.src}
+                        poster={video.poster}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        aria-label={video.title}
+                      />
+                    ) : (
+                      <LiteYouTubeEmbed id={video.id} title={video.title} poster="maxresdefault" noCookie />
+                    )}
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </Reveal>
