@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import {
   BookOpen,
+  ChevronLeft,
+  ChevronRight,
   CalendarDays,
   Leaf,
   Menu,
   Search,
   Shield,
   ShoppingBag,
+  Star,
   Stethoscope,
 } from 'lucide-react';
 
@@ -56,6 +60,82 @@ const vibeCards = [
   },
 ];
 
+const staffMembers = [
+  {
+    name: 'Jaimie Green',
+    title: 'BSN, RN CME, Laser Specialist, Owner',
+    image: '/images/medspa/confident-portrait.jpg',
+  },
+  {
+    name: 'Eric Pulsfus, M.D.',
+    title: 'Medical Director',
+    image: '/images/medspa/hero-calm-face.jpg',
+  },
+  {
+    name: 'Brittney Day',
+    title: 'FNP-C Aesthetic Nurse Practitioner',
+    image: '/images/medspa/soft-reflection-face.jpg',
+  },
+  {
+    name: 'Catherine Seneca',
+    title: 'FNP-C Aesthetic Nurse Practitioner',
+    image: '/images/medspa/radiant-skin-detail.jpg',
+  },
+  {
+    name: 'Lynn Spain',
+    title: 'BSN, RN, CME Laser Specialist',
+    image: '/images/medspa/light-skin-detail.jpg',
+  },
+  {
+    name: 'Sarah Green',
+    title: 'BSN, RN, CME Laser Specialist',
+    image: '/images/medspa/facial-treatment.jpg',
+  },
+  {
+    name: 'Shannon Woodside',
+    title: 'Medical Aesthetician',
+    image: '/images/medspa/provider-mask-treatment.jpg',
+  },
+  {
+    name: 'Savannah Stokes',
+    title: 'CME, Medical Aesthetician',
+    image: '/images/medspa/confident-portrait.jpg',
+  },
+  {
+    name: 'Taylor Waters',
+    title: 'Medical Aesthetician',
+    image: '/images/medspa/soft-reflection-face.jpg',
+  },
+  {
+    name: 'Carol Staples',
+    title: 'Manager',
+    image: '/images/medspa/hero-calm-face.jpg',
+  },
+  {
+    name: 'Olivia Berarducci',
+    title: 'Nurse Intern',
+    image: '/images/medspa/radiant-skin-detail.jpg',
+  },
+];
+
+const reviewSlides = [
+  {
+    quote:
+      'Every service has been provided with the utmost care. Taylor, Lynn, and Catherine are consistently professional, intuitive, and exceptionally well-trained.',
+    author: 'ALEXANDRIA K.',
+  },
+  {
+    quote:
+      'Every experience has been fantastic. I always feel welcome and comfortable, without being pushy.',
+    author: 'REBECCA S.',
+  },
+  {
+    quote:
+      'The only place I go for my injections and facials. The staff are all wonderful professionals.',
+    author: 'VENESSA M.',
+  },
+];
+
 const trustItems: Array<{ icon: LucideIcon; title: string }> = [
   { icon: Stethoscope, title: 'Provider-Led Care' },
   { icon: Leaf, title: 'Natural Philosophy' },
@@ -69,6 +149,22 @@ const uiTextClass =
   'font-sans text-[0.68rem] font-semibold uppercase tracking-[0.2em]';
 
 export function LandingPage() {
+  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const activeReview = reviewSlides[activeReviewIndex];
+
+  const handlePreviousReview = () => {
+    setActiveReviewIndex((currentIndex) => {
+      if (currentIndex === 0) {
+        return reviewSlides.length - 1;
+      }
+      return currentIndex - 1;
+    });
+  };
+
+  const handleNextReview = () => {
+    setActiveReviewIndex((currentIndex) => (currentIndex + 1) % reviewSlides.length);
+  };
+
   return (
     <div className="bg-white text-zinc-900">
       <div className="bg-zinc-900 px-4 py-2 text-center text-[0.62rem] font-medium uppercase tracking-[0.22em] text-white sm:text-xs">
@@ -202,6 +298,40 @@ export function LandingPage() {
           </div>
         </section>
 
+        <section className="bg-white px-4 py-14 sm:px-6">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-center font-display text-4xl leading-none text-zinc-900 sm:text-5xl">
+              EXPERT PROVIDERS
+            </h2>
+            <div className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+              {staffMembers.map((provider) => (
+                <article
+                  key={provider.name}
+                  className="min-w-[78%] snap-center border border-zinc-200 bg-gray-100 sm:min-w-[48%] md:min-w-[34%] lg:min-w-[24%]"
+                >
+                  <img
+                    src={provider.image}
+                    alt={`${provider.name} professional portrait`}
+                    className="aspect-[4/5] w-full object-cover object-center grayscale contrast-125"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="border-t border-zinc-200 bg-white p-4">
+                    <h3 className="font-sans text-base font-bold text-zinc-900">{provider.name}</h3>
+                    <p className="mt-2 min-h-10 text-sm leading-5 text-zinc-500">{provider.title}</p>
+                    <a
+                      href="#"
+                      className="mt-4 inline-block font-sans text-[0.62rem] font-medium uppercase tracking-[0.2em] text-zinc-800 underline underline-offset-4"
+                    >
+                      EXPLORE PROFILE
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="relative overflow-hidden">
           <img
             src="/images/medspa/provider-mask-treatment.jpg"
@@ -221,6 +351,53 @@ export function LandingPage() {
             >
               EXPLORE MEMBERSHIPS
             </button>
+          </div>
+        </section>
+
+        <section className="bg-gray-100 px-4 py-14 sm:px-6">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center">
+              <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.18em] text-zinc-600">
+                4.9 / 5.0 based on 222 Google reviews
+              </p>
+              <div className="mt-3 flex items-center justify-center gap-1 text-zinc-700">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <Star
+                    key={`review-star-${index}`}
+                    className="h-4 w-4"
+                    strokeWidth={1.2}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-10 border-y border-zinc-300 py-10">
+              <p className="text-center font-display text-[2.2rem] leading-[0.95] text-zinc-900 sm:text-6xl">
+                &ldquo;{activeReview.quote}&rdquo;
+              </p>
+              <p className="mt-6 text-center font-sans text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-zinc-600">
+                {activeReview.author}
+              </p>
+
+              <div className="mt-8 flex items-center justify-center gap-3">
+                <button
+                  type="button"
+                  aria-label="Previous review"
+                  onClick={handlePreviousReview}
+                  className="inline-flex h-11 w-11 items-center justify-center border border-zinc-300 bg-white text-zinc-800 transition hover:border-zinc-500"
+                >
+                  <ChevronLeft className="h-5 w-5" strokeWidth={1.25} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next review"
+                  onClick={handleNextReview}
+                  className="inline-flex h-11 w-11 items-center justify-center border border-zinc-300 bg-white text-zinc-800 transition hover:border-zinc-500"
+                >
+                  <ChevronRight className="h-5 w-5" strokeWidth={1.25} />
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 
