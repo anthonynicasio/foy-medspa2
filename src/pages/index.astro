@@ -7,36 +7,54 @@ const services = [
     eyebrow: 'Injectables',
     description:
       'Botox and neuromodulator appointments focused on smooth, natural-looking expression.',
+    image: '/images/medspa/confident-portrait.jpg',
+    imageAlt: 'Editorial portrait with luminous skin',
+    imagePosition: 'object-[50%_26%]',
   },
   {
     title: 'Dermal Fillers',
     eyebrow: 'Facial balance',
     description:
       'Thoughtful volume restoration for lips, cheeks, jawline, and facial harmony.',
+    image: '/images/medspa/radiant-skin-detail.jpg',
+    imageAlt: 'Close-up portrait with radiant skin and soft reflection',
+    imagePosition: 'object-[52%_32%]',
   },
   {
     title: 'Skin Lasers',
     eyebrow: 'Tone + texture',
     description:
       'FDA-cleared laser treatments designed to refresh clarity, sun damage, and skin quality.',
+    image: '/images/medspa/light-skin-detail.jpg',
+    imageAlt: 'Close-up of skin and eye in warm light',
+    imagePosition: 'object-[57%_42%]',
   },
   {
     title: 'Tattoo Removal',
     eyebrow: 'PicoWay',
     description:
       'Advanced laser tattoo removal plans with a modern device and provider-led expectations.',
+    image: '/images/medspa/soft-reflection-face.jpg',
+    imageAlt: 'Serene face reflected through soft warm light',
+    imagePosition: 'object-[50%_42%]',
   },
   {
     title: 'Laser Hair Removal',
     eyebrow: 'Smooth skin',
     description:
       'Customized hair reduction programs for lasting confidence across treatment areas.',
+    image: '/images/medspa/provider-mask-treatment.jpg',
+    imageAlt: 'Provider applying a facial treatment mask',
+    imagePosition: 'object-[50%_42%]',
   },
   {
     title: 'Wellness',
     eyebrow: 'Inside out',
     description:
       'Weight loss shots and bioidentical hormones to support how you feel every day.',
+    image: '/images/medspa/serum-dropper.jpg',
+    imageAlt: 'Golden serum dropper above skin',
+    imagePosition: 'object-[52%_48%]',
   },
 ];
 
@@ -106,19 +124,32 @@ const values = [
               </div>
             </div>
 
-            <div class="relative">
-              <div class="aspect-[4/5] rounded-[2.5rem] bg-[radial-gradient(circle_at_32%_22%,#fff8ef,transparent_30%),linear-gradient(145deg,#d8b7a4,#e9dccc_48%,#6d735e)] p-6 shadow-soft">
-                <div class="relative flex h-full flex-col justify-end overflow-hidden rounded-[2rem] border border-white/45 bg-white/20 p-7 backdrop-blur-sm">
-                  <div class="absolute -right-20 top-16 h-72 w-72 rounded-full bg-cream/65"></div>
-                  <div class="absolute bottom-20 left-8 h-60 w-60 rounded-full border border-white/50"></div>
-                  <div class="absolute bottom-32 left-24 h-32 w-32 rounded-full bg-moss/25"></div>
-                  <div class="self-end rounded-[2rem] bg-espresso p-7 text-cream shadow-soft sm:max-w-sm">
-                    <p class="text-sm uppercase tracking-[0.28em] text-cream/60">Provider-led care</p>
+            <div class="relative pb-20 lg:pb-14">
+              <div class="aspect-[4/5] overflow-hidden rounded-[2.75rem] bg-sand p-3 shadow-soft">
+                <div class="relative h-full overflow-hidden rounded-[2.25rem]">
+                  <img
+                    src="/images/medspa/hero-calm-face.jpg"
+                    alt="Woman with glowing skin resting in warm natural light"
+                    class="h-full w-full object-cover object-[48%_34%]"
+                    decoding="async"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-espresso/70 via-espresso/10 to-transparent"></div>
+                  <div class="absolute bottom-6 left-6 right-6 rounded-[1.75rem] border border-white/25 bg-cream/15 p-6 text-cream shadow-soft backdrop-blur-xl">
+                    <p class="text-xs font-semibold uppercase tracking-[0.28em] text-cream/70">Provider-led care</p>
                     <p class="mt-4 font-display text-4xl leading-none">A better you, not a different person.</p>
                   </div>
                 </div>
               </div>
-              <div class="absolute -bottom-8 -left-5 grid w-[92%] grid-cols-3 overflow-hidden rounded-[1.75rem] bg-white shadow-soft">
+              <div class="absolute -bottom-3 -left-4 hidden w-44 overflow-hidden rounded-[1.5rem] border-4 border-cream bg-white shadow-soft sm:block">
+                <img
+                  src="/images/medspa/cream-texture.jpg"
+                  alt="Minimal cream texture on a white surface"
+                  class="aspect-[4/3] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="absolute bottom-0 right-0 grid w-[92%] grid-cols-3 overflow-hidden rounded-[1.75rem] bg-white shadow-soft sm:w-[82%]">
                 {stats.map(([number, label]) => (
                   <div class="border-r border-espresso/10 p-5 last:border-r-0">
                     <p class="font-display text-3xl">{number}</p>
@@ -144,12 +175,23 @@ const values = [
               </p>
             </div>
 
-            <div class="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {services.map((service) => (
-                <article class="group rounded-[2rem] border border-cream/10 bg-cream/[0.04] p-7 transition duration-300 hover:-translate-y-2 hover:bg-cream hover:text-espresso">
-                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-blush group-hover:text-clay">{service.eyebrow}</p>
-                  <h3 class="mt-8 font-display text-4xl">{service.title}</h3>
-                  <p class="mt-5 leading-7 text-cream/65 group-hover:text-espresso/65">{service.description}</p>
+                <article class="group overflow-hidden rounded-[2rem] border border-cream/10 bg-cream/[0.04] p-3 transition duration-300 hover:-translate-y-2 hover:bg-cream hover:text-espresso">
+                  <div class="aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-cream/10">
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt}
+                      class={`h-full w-full object-cover transition duration-500 group-hover:scale-105 ${service.imagePosition}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="p-4 pt-6">
+                    <p class="text-xs font-semibold uppercase tracking-[0.3em] text-blush group-hover:text-clay">{service.eyebrow}</p>
+                    <h3 class="mt-6 font-display text-4xl">{service.title}</h3>
+                    <p class="mt-5 leading-7 text-cream/65 group-hover:text-espresso/65">{service.description}</p>
+                  </div>
                 </article>
               ))}
             </div>
@@ -158,12 +200,21 @@ const values = [
 
         <section id="approach" class="px-5 py-24 lg:px-8">
           <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="rounded-[2.5rem] bg-sand p-8 shadow-soft">
+            <div class="overflow-hidden rounded-[2.5rem] bg-sand shadow-soft">
+              <img
+                src="/images/medspa/facial-treatment.jpg"
+                alt="Aesthetic facial treatment in a calm medspa room"
+                class="aspect-[5/4] w-full object-cover object-[50%_42%]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="p-8">
               <p class="text-sm font-semibold uppercase tracking-[0.34em] text-clay">Who we are</p>
               <h2 class="mt-6 font-display text-5xl leading-none">Medical aesthetics, refined through experience.</h2>
               <p class="mt-6 text-lg leading-8 text-espresso/70">
                 Our team includes physicians, aesthetic nurse practitioners, registered nurses, and medical aestheticians specializing in aesthetic medicine and skin health.
               </p>
+              </div>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
               {values.map((value, index) => (
@@ -177,7 +228,7 @@ const values = [
         </section>
 
         <section id="membership" class="bg-white px-5 py-24 lg:px-8">
-          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
               <p class="text-sm font-semibold uppercase tracking-[0.38em] text-clay">Confidence, cared for</p>
               <h2 class="mt-5 font-display text-5xl leading-none sm:text-6xl">
@@ -187,31 +238,51 @@ const values = [
                 Inspired by a membership-minded care model, this concept gives Fountain of Youth a premium path for consultations, treatment plans, and recurring care.
               </p>
             </div>
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-[2rem] bg-cream p-7">
-                <p class="text-sm uppercase tracking-[0.28em] text-clay">Maintain</p>
-                <h3 class="mt-5 font-display text-4xl">Glow Plan</h3>
-                <p class="mt-5 leading-7 text-espresso/65">Monthly skincare touchpoints, member savings, and provider guidance.</p>
+            <div class="relative">
+              <div class="overflow-hidden rounded-[2.5rem] bg-cream p-3 shadow-soft">
+                <img
+                  src="/images/medspa/cream-texture.jpg"
+                  alt="Minimal skincare cream texture"
+                  class="aspect-[16/10] w-full rounded-[2rem] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <div class="rounded-[2rem] bg-espresso p-7 text-cream">
-                <p class="text-sm uppercase tracking-[0.28em] text-blush">Transform</p>
-                <h3 class="mt-5 font-display text-4xl">Laser Plan</h3>
-                <p class="mt-5 leading-7 text-cream/65">Bundled resurfacing, hair removal, or tattoo removal plans with clear milestones.</p>
+              <div class="relative -mt-14 grid gap-4 px-4 sm:grid-cols-2">
+                <div class="rounded-[2rem] bg-cream p-7 shadow-soft">
+                  <p class="text-sm uppercase tracking-[0.28em] text-clay">Maintain</p>
+                  <h3 class="mt-5 font-display text-4xl">Glow Plan</h3>
+                  <p class="mt-5 leading-7 text-espresso/65">Monthly skincare touchpoints, member savings, and provider guidance.</p>
+                </div>
+                <div class="rounded-[2rem] bg-espresso p-7 text-cream shadow-soft">
+                  <p class="text-sm uppercase tracking-[0.28em] text-blush">Transform</p>
+                  <h3 class="mt-5 font-display text-4xl">Laser Plan</h3>
+                  <p class="mt-5 leading-7 text-cream/65">Bundled resurfacing, hair removal, or tattoo removal plans with clear milestones.</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         <section id="book" class="px-5 py-24 lg:px-8">
-          <div class="mx-auto max-w-5xl rounded-[2.5rem] bg-clay p-8 text-center text-cream shadow-soft sm:p-14">
-            <p class="text-sm font-semibold uppercase tracking-[0.38em] text-cream/70">Not sure where to start?</p>
-            <h2 class="mt-5 font-display text-5xl leading-none sm:text-6xl">Meet with an expert provider.</h2>
-            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-cream/75">
-              Begin with a consultation, transparent education, and a personalized treatment plan built around your goals.
-            </p>
-            <a href="tel:+10000000000" class="mt-10 inline-flex rounded-full bg-cream px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-espresso transition hover:bg-espresso hover:text-cream">
-              Call to book
-            </a>
+          <div class="mx-auto grid max-w-6xl overflow-hidden rounded-[2.5rem] bg-clay text-cream shadow-soft lg:grid-cols-[0.9fr_1.1fr]">
+            <img
+              src="/images/medspa/hero-calm-face.jpg"
+              alt="Relaxed skincare portrait in natural light"
+              class="h-full min-h-80 w-full object-cover object-[50%_34%] lg:order-2"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="p-8 sm:p-14">
+              <p class="text-sm font-semibold uppercase tracking-[0.38em] text-cream/70">Not sure where to start?</p>
+              <h2 class="mt-5 font-display text-5xl leading-none sm:text-6xl">Meet with an expert provider.</h2>
+              <p class="mt-6 max-w-2xl text-lg leading-8 text-cream/75">
+                Begin with a consultation, transparent education, and a personalized treatment plan built around your goals.
+              </p>
+              <a href="tel:+10000000000" class="mt-10 inline-flex rounded-full bg-cream px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-espresso transition hover:bg-espresso hover:text-cream">
+                Call to book
+              </a>
+            </div>
           </div>
         </section>
       </main>
