@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans text-espresso antialiased;
+  }
+
+  ::selection {
+    @apply bg-clay text-white;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-clay;
+  }
+
+  .section-shell {
+    @apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .pill-link {
+    @apply inline-flex items-center justify-center rounded-full border border-espresso/20 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] transition hover:border-espresso hover:bg-espresso hover:text-cream;
+  }
+}

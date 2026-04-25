@@ -1,0 +1,220 @@
+---
+import '../styles/global.css';
+
+const services = [
+  {
+    title: 'Wrinkle Reducers',
+    eyebrow: 'Injectables',
+    description:
+      'Botox and neuromodulator appointments focused on smooth, natural-looking expression.',
+  },
+  {
+    title: 'Dermal Fillers',
+    eyebrow: 'Facial balance',
+    description:
+      'Thoughtful volume restoration for lips, cheeks, jawline, and facial harmony.',
+  },
+  {
+    title: 'Skin Lasers',
+    eyebrow: 'Tone + texture',
+    description:
+      'FDA-cleared laser treatments designed to refresh clarity, sun damage, and skin quality.',
+  },
+  {
+    title: 'Tattoo Removal',
+    eyebrow: 'PicoWay',
+    description:
+      'Advanced laser tattoo removal plans with a modern device and provider-led expectations.',
+  },
+  {
+    title: 'Laser Hair Removal',
+    eyebrow: 'Smooth skin',
+    description:
+      'Customized hair reduction programs for lasting confidence across treatment areas.',
+  },
+  {
+    title: 'Wellness',
+    eyebrow: 'Inside out',
+    description:
+      'Weight loss shots and bioidentical hormones to support how you feel every day.',
+  },
+];
+
+const stats = [
+  ['25+', 'Years specializing in medical aesthetics'],
+  ['1999', 'Modern medspa care since'],
+  ['1:1', 'Customized treatment planning'],
+];
+
+const values = [
+  'Licensed medical providers and aesthetic specialists',
+  'Natural aesthetic philosophy with no overdone results',
+  'FDA-cleared technology for laser and skin services',
+  'Education-first consults that keep your goals in focus',
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fountain of Youth Spa & Laser Center offers modern medical aesthetics, injectables, lasers, tattoo removal, skincare, and wellness services."
+    />
+    <title>Fountain of Youth Spa & Laser Center</title>
+  </head>
+  <body class="bg-cream text-espresso antialiased">
+    <div class="overflow-hidden">
+      <header class="fixed inset-x-0 top-0 z-50 border-b border-white/30 bg-cream/85 backdrop-blur-xl">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+          <a href="#" class="font-display text-2xl tracking-tight">Fountain of Youth</a>
+          <div class="hidden items-center gap-8 text-sm uppercase tracking-[0.24em] text-espresso/70 md:flex">
+            <a class="transition hover:text-clay" href="#services">Services</a>
+            <a class="transition hover:text-clay" href="#approach">Approach</a>
+            <a class="transition hover:text-clay" href="#membership">Plans</a>
+          </div>
+          <a
+            href="#book"
+            class="rounded-full bg-espresso px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-cream transition hover:bg-clay"
+          >
+            Book now
+          </a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="relative min-h-screen px-5 pb-16 pt-32 lg:px-8 lg:pt-40">
+          <div class="absolute left-1/2 top-0 -z-10 h-[680px] w-[680px] -translate-x-1/2 rounded-full bg-blush/40 blur-3xl"></div>
+          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <p class="mb-5 text-sm font-semibold uppercase tracking-[0.38em] text-clay">Rejuvenate · Restore · Remove</p>
+              <h1 class="font-display text-6xl leading-[0.92] tracking-tight sm:text-7xl lg:text-8xl">
+                Modern aesthetics with a natural point of view.
+              </h1>
+              <p class="mt-8 max-w-xl text-lg leading-8 text-espresso/70">
+                Since 1999, Fountain of Youth Spa & Laser Center has paired medical expertise with a warm, personal experience across injectables, lasers, skincare, tattoo removal, and wellness.
+              </p>
+              <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+                <a href="#book" class="rounded-full bg-espresso px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.22em] text-cream transition hover:bg-clay">
+                  Start with a consult
+                </a>
+                <a href="#services" class="rounded-full border border-espresso/20 px-8 py-4 text-center text-sm font-semibold uppercase tracking-[0.22em] transition hover:border-clay hover:text-clay">
+                  Explore services
+                </a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="aspect-[4/5] rounded-[2.5rem] bg-[radial-gradient(circle_at_30%_20%,#fff8ef,transparent_28%),linear-gradient(145deg,#d8b7a4,#e9dccc_48%,#6d735e)] p-6 shadow-soft">
+                <div class="flex h-full flex-col justify-between rounded-[2rem] border border-white/45 bg-white/20 p-7 backdrop-blur-sm">
+                  <div class="max-w-xs rounded-full bg-cream/90 px-5 py-3 text-sm font-medium shadow-sm">
+                    Now offering PicoWay laser tattoo removal
+                  </div>
+                  <div class="self-end rounded-[2rem] bg-espresso p-7 text-cream shadow-soft sm:max-w-sm">
+                    <p class="text-sm uppercase tracking-[0.28em] text-cream/60">Provider-led care</p>
+                    <p class="mt-4 font-display text-4xl leading-none">A better you, not a different person.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute -bottom-8 -left-5 grid w-[92%] grid-cols-3 overflow-hidden rounded-[1.75rem] bg-white shadow-soft">
+                {stats.map(([number, label]) => (
+                  <div class="border-r border-espresso/10 p-5 last:border-r-0">
+                    <p class="font-display text-3xl">{number}</p>
+                    <p class="mt-2 text-xs leading-5 text-espresso/60">{label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" class="bg-espresso px-5 py-24 text-cream lg:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.38em] text-blush">Our services</p>
+                <h2 class="mt-4 max-w-3xl font-display text-5xl leading-none sm:text-6xl">
+                  Personalized care, without the pressure.
+                </h2>
+              </div>
+              <p class="max-w-md text-lg leading-8 text-cream/65">
+                Your goals guide every recommendation, from subtle injectables to skin health and wellness plans.
+              </p>
+            </div>
+
+            <div class="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {services.map((service) => (
+                <article class="group rounded-[2rem] border border-cream/10 bg-cream/[0.04] p-7 transition duration-300 hover:-translate-y-2 hover:bg-cream hover:text-espresso">
+                  <p class="text-xs font-semibold uppercase tracking-[0.3em] text-blush group-hover:text-clay">{service.eyebrow}</p>
+                  <h3 class="mt-8 font-display text-4xl">{service.title}</h3>
+                  <p class="mt-5 leading-7 text-cream/65 group-hover:text-espresso/65">{service.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="approach" class="px-5 py-24 lg:px-8">
+          <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="rounded-[2.5rem] bg-sand p-8 shadow-soft">
+              <p class="text-sm font-semibold uppercase tracking-[0.34em] text-clay">Who we are</p>
+              <h2 class="mt-6 font-display text-5xl leading-none">Medical aesthetics, refined through experience.</h2>
+              <p class="mt-6 text-lg leading-8 text-espresso/70">
+                Our team includes physicians, aesthetic nurse practitioners, registered nurses, and medical aestheticians specializing in aesthetic medicine and skin health.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              {values.map((value, index) => (
+                <div class="rounded-[2rem] border border-espresso/10 bg-white/60 p-7">
+                  <span class="font-display text-5xl text-clay">0{index + 1}</span>
+                  <p class="mt-10 text-xl leading-8">{value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="membership" class="bg-white px-5 py-24 lg:px-8">
+          <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+            <div>
+              <p class="text-sm font-semibold uppercase tracking-[0.38em] text-clay">Confidence, cared for</p>
+              <h2 class="mt-5 font-display text-5xl leading-none sm:text-6xl">
+                A guided plan for skin, body, and long-term confidence.
+              </h2>
+              <p class="mt-7 text-lg leading-8 text-espresso/70">
+                Inspired by a membership-minded care model, this concept gives Fountain of Youth a premium path for consultations, treatment plans, and recurring care.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="rounded-[2rem] bg-cream p-7">
+                <p class="text-sm uppercase tracking-[0.28em] text-clay">Maintain</p>
+                <h3 class="mt-5 font-display text-4xl">Glow Plan</h3>
+                <p class="mt-5 leading-7 text-espresso/65">Monthly skincare touchpoints, member savings, and provider guidance.</p>
+              </div>
+              <div class="rounded-[2rem] bg-espresso p-7 text-cream">
+                <p class="text-sm uppercase tracking-[0.28em] text-blush">Transform</p>
+                <h3 class="mt-5 font-display text-4xl">Laser Plan</h3>
+                <p class="mt-5 leading-7 text-cream/65">Bundled resurfacing, hair removal, or tattoo removal plans with clear milestones.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="book" class="px-5 py-24 lg:px-8">
+          <div class="mx-auto max-w-5xl rounded-[2.5rem] bg-clay p-8 text-center text-cream shadow-soft sm:p-14">
+            <p class="text-sm font-semibold uppercase tracking-[0.38em] text-cream/70">Not sure where to start?</p>
+            <h2 class="mt-5 font-display text-5xl leading-none sm:text-6xl">Meet with an expert provider.</h2>
+            <p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-cream/75">
+              Begin with a consultation, transparent education, and a personalized treatment plan built around your goals.
+            </p>
+            <a href="tel:+10000000000" class="mt-10 inline-flex rounded-full bg-cream px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-espresso transition hover:bg-espresso hover:text-cream">
+              Call to book
+            </a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
