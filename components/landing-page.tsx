@@ -121,18 +121,37 @@ const staffMembers = [
 const reviewSlides = [
   {
     quote:
-      'Every service has been provided with the utmost care. Taylor, Lynn, and Catherine are consistently professional, intuitive, and exceptionally well-trained.',
-    author: 'ALEXANDRIA K.',
+      "I've been seeing Taylor Watters for a year now for various skin treatments. Every experience with her has been fantastic! Highly recommend her services when you book at Fountain of Youth Spa!!! I've also seen Lynn for laser hair and IPL treatments. She is great as well! Everyone there is very nice, I always feel welcome and comfortable. All the ladies are also great when I have questions about product recommendations, without being pushy on sales. Cannot recommend the Saint Augustine location enough - it's FANTASTIC!",
+    author: 'Rebecca Sibley',
+    details: '2 months ago - Reasonable price',
+    services:
+      'Hydradermabrasion/HydraFacial, Sun spot treatments, IPL skin rejuvenation treatment, Basic facial, Laser hair removal, Microneedling, Radiofrequency treatments, Dermaplaning',
   },
   {
     quote:
-      'Every experience has been fantastic. I always feel welcome and comfortable, without being pushy.',
-    author: 'REBECCA S.',
+      'This is my before and after, taken four days post-procedure. The entire process went smoothly and quickly. She knew exactly what she was doing-understanding what I wanted, what would complement my features, and how much volume my lips could handle. I experienced no bruising or severe swelling afterward. My upper lip was quite thin, and I wanted more overall volume, so I went with a full syringe. I am extremely pleased with the results. The service was exceptional-everyone on staff was incredibly friendly, helpful, and patient with me. As a first-timer with lip filler, they made me feel completely comfortable throughout the process. I would highly recommend them, and in fact, I already have. I will definitely be visiting again.',
+    author: 'JueJue',
+    details: '2 months ago - Local Guide',
   },
   {
     quote:
-      'The only place I go for my injections and facials. The staff are all wonderful professionals.',
-    author: 'VENESSA M.',
+      "I'm a regular customer with experience at several med spas over the years. Fountain of Youth Spa in St. Augustine is absolutely my top spa! Since going there, it's the only place I go for my xeomin injections and lips and cheek fillers and facials. The staff are all wonderful professionals, but I almost always get my injections from Catherine Seneca. She is the best! I almost forgot, I have lost 35 pounds with their help too!",
+    author: 'venessa maxwell',
+    details: '3 months ago - Local Guide',
+  },
+  {
+    quote:
+      "I've had facials, laser hair removal, and Botox at FOY Spa. Every service has been provided with the utmost care. Taylor, Lynn, and Catherine are consistently professional, intuitive, and exceptionally well-trained. My skin has never looked better. I wouldn't go anywhere else!",
+    author: 'Alexandria Kaller',
+    details: '2 months ago - Great price',
+    services: 'Basic facial, Acne facial, Laser hair removal, BOTOX treatments',
+  },
+  {
+    quote:
+      "I have been seeing Taylor before she was at Fountain of Youth! She is the absolute best, and I would follow her wherever she went. I've struggled with acne for so many years, and Taylor has worked with me to find the root of the issue. She always pays close attention to where the acne is forming and how we can best tackle it. I always leave feeling refreshed and like my skin is brand new!!",
+    author: 'elliott',
+    details: '2 months ago - Great price',
+    services: 'Acne treatments, Dermaplaning',
   },
 ];
 
@@ -312,7 +331,7 @@ export function LandingPage() {
                   <img
                     src={provider.image}
                     alt={`${provider.name} professional portrait`}
-                    className="aspect-[4/5] w-full object-cover object-center grayscale contrast-125"
+                    className="aspect-[3/2] w-full bg-gray-100 object-contain object-center p-1.5 grayscale contrast-125"
                     loading="lazy"
                     decoding="async"
                   />
@@ -372,12 +391,19 @@ export function LandingPage() {
             </div>
 
             <div className="mt-10 border-y border-zinc-300 py-10">
-              <p className="text-center font-display text-[2.2rem] leading-[0.95] text-zinc-900 sm:text-6xl">
+              <p className="text-center font-display text-[1.9rem] leading-[1] text-zinc-900 sm:text-[3.3rem]">
                 &ldquo;{activeReview.quote}&rdquo;
               </p>
               <p className="mt-6 text-center font-sans text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-zinc-600">
                 {activeReview.author}
               </p>
+              <p className="mt-2 text-center text-xs text-zinc-500">{activeReview.details}</p>
+              {activeReview.services && (
+                <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-zinc-600">
+                  <span className={`mr-1 ${uiTextClass}`}>Services:</span>
+                  {activeReview.services}
+                </p>
+              )}
 
               <div className="mt-8 flex items-center justify-center gap-3">
                 <button
