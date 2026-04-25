@@ -33,11 +33,11 @@
   }
 
   body {
-    @apply bg-cream font-sans text-espresso antialiased;
+    @apply bg-white font-sans text-zinc-900 antialiased;
   }
 
   ::selection {
-    @apply bg-espresso text-cream;
+    @apply bg-zinc-900 text-white;
   }
 }
 
