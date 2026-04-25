@@ -177,7 +177,7 @@ function LinksPage() {
   return (
     <div className="surface-cream grain min-h-screen overflow-hidden pb-24 text-espresso sm:pb-0">
       <main>
-        <Reveal className="surface-cream-soft grain relative overflow-hidden px-5 py-28 sm:px-8 lg:px-10 lg:py-36">
+        <Reveal className="surface-cream-soft grain relative overflow-hidden px-5 pb-28 pt-[0.5in] sm:px-8 lg:px-10 lg:pb-36 lg:pt-[0.5in]">
           <div className="mx-auto max-w-6xl">
             <div className="mb-10 max-w-3xl">
               <p className="text-xs font-semibold uppercase tracking-[0.36em] text-clay">Quick links</p>
