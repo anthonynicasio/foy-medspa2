@@ -1,22 +1,62 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: [
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './lib/**/*.{js,ts}',
+  ],
   theme: {
     extend: {
       colors: {
-        cream: '#F7F0E8',
-        sand: '#E9DCCC',
-        blush: '#D8B7A4',
-        clay: '#B7836D',
-        espresso: '#2D211C',
+        cream: '#F5F5F0',
+        sand: '#E9E3D8',
+        blush: '#D6C2B6',
+        clay: '#9B7A67',
+        espresso: '#2D2926',
         moss: '#6D735E',
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        brand: 'hsl(var(--brand))',
+        'brand-foreground': 'hsl(var(--brand-foreground))',
       },
       fontFamily: {
         display: ['Cormorant Garamond', 'Georgia', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 24px 80px rgba(45, 33, 28, 0.12)',
+        soft: '0 24px 80px rgba(45, 41, 38, 0.12)',
+      },
+      keyframes: {
+        'appear-zoom': {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+      },
+      animation: {
+        'appear-zoom': 'appear-zoom 0.5s ease-out forwards',
       },
     },
   },
