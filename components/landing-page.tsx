@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import {
   BookOpen,
@@ -166,10 +166,33 @@ const footerSections = ['Treatments', 'About', 'Contact'];
 
 const uiTextClass =
   'font-sans text-[0.68rem] font-semibold uppercase tracking-[0.2em]';
+const reviewAutoAdvanceMs = 6000;
 
 export function LandingPage() {
   const [activeReviewIndex, setActiveReviewIndex] = useState(0);
   const activeReview = reviewSlides[activeReviewIndex];
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return undefined;
+    }
+
+    // Respect reduced motion preferences while still supporting manual nav.
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+    if (prefersReducedMotion) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveReviewIndex((currentIndex) => (currentIndex + 1) % reviewSlides.length);
+    }, reviewAutoAdvanceMs);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, []);
 
   const handlePreviousReview = () => {
     setActiveReviewIndex((currentIndex) => {
