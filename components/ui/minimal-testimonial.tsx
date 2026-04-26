@@ -44,23 +44,77 @@ type TestimonialsMinimalProps = {
   className?: string;
 };
 
+const transitionDurationMs = 420;
+const transitionExitLeadMs = 220;
+
 export function TestimonialsMinimal({
   testimonials = defaultTestimonials,
   autoAdvanceMs = 6000,
   className = "",
 }: TestimonialsMinimalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [queuedIndex, setQueuedIndex] = useState<number | null>(null);
+  const [phase, setPhase] = useState<"idle" | "exiting" | "entering">("idle");
   const [isPaused, setIsPaused] = useState(false);
 
+  const requestIndex = (nextIndex: number) => {
+    if (testimonials.length <= 1) {
+      return;
+    }
+
+    const normalizedIndex =
+      ((nextIndex % testimonials.length) + testimonials.length) %
+      testimonials.length;
+
+    if (normalizedIndex === activeIndex && phase === "idle") {
+      return;
+    }
+
+    setQueuedIndex(normalizedIndex);
+    if (phase !== "exiting") {
+      setPhase("exiting");
+    }
+  };
+
   const goToNext = () => {
-    setActiveIndex((current) => (current + 1) % testimonials.length);
+    const seedIndex = queuedIndex ?? activeIndex;
+    requestIndex(seedIndex + 1);
   };
 
   const goToPrevious = () => {
-    setActiveIndex((current) =>
-      current === 0 ? testimonials.length - 1 : current - 1,
-    );
+    const seedIndex = queuedIndex ?? activeIndex;
+    requestIndex(seedIndex - 1);
   };
+
+  useEffect(() => {
+    if (phase !== "exiting" || queuedIndex === null) {
+      return undefined;
+    }
+
+    const exitTimer = window.setTimeout(() => {
+      setActiveIndex(queuedIndex);
+      setQueuedIndex(null);
+      setPhase("entering");
+    }, transitionExitLeadMs);
+
+    return () => {
+      window.clearTimeout(exitTimer);
+    };
+  }, [phase, queuedIndex]);
+
+  useEffect(() => {
+    if (phase !== "entering") {
+      return undefined;
+    }
+
+    const frameId = window.requestAnimationFrame(() => {
+      setPhase("idle");
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [phase, activeIndex]);
 
   useEffect(() => {
     if (
@@ -81,11 +135,19 @@ export function TestimonialsMinimal({
 
     const intervalId = window.setInterval(goToNext, autoAdvanceMs);
     return () => window.clearInterval(intervalId);
-  }, [autoAdvanceMs, isPaused, testimonials.length]);
+  }, [autoAdvanceMs, isPaused, testimonials.length, activeIndex, queuedIndex, phase]);
 
   if (testimonials.length === 0) {
     return null;
   }
+
+  const activeTestimonial = testimonials[activeIndex];
+  const textMotionClass =
+    phase === "exiting"
+      ? "-translate-y-2 opacity-0 blur-sm"
+      : phase === "entering"
+        ? "translate-y-2 opacity-0 blur-sm"
+        : "translate-y-0 opacity-100 blur-0";
 
   return (
     <div
@@ -95,36 +157,30 @@ export function TestimonialsMinimal({
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="relative mb-10 min-h-[24rem] sm:min-h-[20rem] md:min-h-[18rem]">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={`${testimonial.author}-${index}`}
-            className={`absolute inset-0 transition-all duration-500 ease-out ${
-              activeIndex === index
-                ? "translate-y-0 opacity-100 blur-0"
-                : "pointer-events-none translate-y-3 opacity-0 blur-sm"
-            }`}
-          >
-            <blockquote className="mx-auto max-w-[34ch]">
-              <p className="font-display text-[1.38rem] leading-[1.16] tracking-[-0.01em] text-zinc-900 sm:text-[1.8rem] sm:leading-[1.1] md:text-[2.3rem]">
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-            </blockquote>
-            {testimonial.details && (
-              <p className="mx-auto mt-5 max-w-[34ch] font-sans text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
-                {testimonial.details}
-              </p>
-            )}
-            {testimonial.services && (
-              <p className="mx-auto mt-3 max-w-[34ch] text-sm leading-6 text-zinc-600">
-                <span className="mr-1 font-sans text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-zinc-700">
-                  Services:
-                </span>
-                {testimonial.services}
-              </p>
-            )}
-          </div>
-        ))}
+      <div className="mb-10 min-h-[24rem] sm:min-h-[20rem] md:min-h-[18rem]">
+        <div
+          className={`transition-all ease-out ${textMotionClass}`}
+          style={{ transitionDuration: `${transitionDurationMs}ms` }}
+        >
+          <blockquote className="mx-auto max-w-[34ch]">
+            <p className="font-display text-[1.38rem] leading-[1.16] tracking-[-0.01em] text-zinc-900 sm:text-[1.8rem] sm:leading-[1.1] md:text-[2.3rem]">
+              &ldquo;{activeTestimonial.quote}&rdquo;
+            </p>
+          </blockquote>
+          {activeTestimonial.details && (
+            <p className="mx-auto mt-5 max-w-[34ch] font-sans text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+              {activeTestimonial.details}
+            </p>
+          )}
+          {activeTestimonial.services && (
+            <p className="mx-auto mt-3 max-w-[34ch] text-sm leading-6 text-zinc-600">
+              <span className="mr-1 font-sans text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-zinc-700">
+                Services:
+              </span>
+              {activeTestimonial.services}
+            </p>
+          )}
+        </div>
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-4 border-t border-zinc-300 pt-5 sm:flex-nowrap">
@@ -133,7 +189,7 @@ export function TestimonialsMinimal({
             <button
               key={`${testimonial.author}-avatar-${index}`}
               type="button"
-              onClick={() => setActiveIndex(index)}
+              onClick={() => requestIndex(index)}
               aria-label={`Show review by ${testimonial.author}`}
               className={`relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-zinc-200 ring-2 ring-white transition-all duration-300 ease-out ${
                 activeIndex === index
