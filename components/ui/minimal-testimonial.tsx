@@ -1,8 +1,15 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useEffect, useState } from "react";
 
-const testimonials = [
+export type MinimalTestimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  image: string;
+};
+
+const defaultTestimonials: MinimalTestimonial[] = [
   {
     quote:
       "Working with them transformed our entire brand identity. The attention to detail was exceptional.",
@@ -27,19 +34,47 @@ const testimonials = [
     image:
       "https://plus.unsplash.com/premium_photo-1689977830819-d00b3a9b7363?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGF2YXRhcnN8ZW58MHx8MHx8fDA%3D",
   },
-]
+];
 
-export function TestimonialsMinimal() {
-  const [active, setActive] = useState(0)
+type TestimonialsMinimalProps = {
+  testimonials?: MinimalTestimonial[];
+  autoSlideMs?: number;
+  className?: string;
+};
+
+export function TestimonialsMinimal({
+  testimonials = defaultTestimonials,
+  autoSlideMs = 6000,
+  className = "",
+}: TestimonialsMinimalProps) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (testimonials.length <= 1 || autoSlideMs <= 0) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActive((current) => (current + 1) % testimonials.length);
+    }, autoSlideMs);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, [autoSlideMs, testimonials.length]);
+
+  if (testimonials.length === 0) {
+    return null;
+  }
 
   return (
-    <div className="mx-auto w-full max-w-xl px-6 py-16">
-      <div className="relative mb-12 min-h-[80px]">
+    <div className={`mx-auto w-full max-w-5xl px-0 py-8 ${className}`.trim()}>
+      <div className="relative mb-12 min-h-[210px] sm:min-h-[220px]">
         {testimonials.map((t, i) => (
           <p
-            key={i}
+            key={t.name}
             className={`
-              absolute inset-0 text-xl font-light leading-relaxed text-foreground transition-all duration-500 ease-out md:text-2xl
+              absolute inset-0 font-display text-[1.75rem] leading-[0.95] text-zinc-900 transition-all duration-500 ease-out sm:text-[3.3rem]
               ${
                 active === i
                   ? "translate-y-0 opacity-100 blur-0"
@@ -56,10 +91,11 @@ export function TestimonialsMinimal() {
         <div className="flex -space-x-2">
           {testimonials.map((t, i) => (
             <button
-              key={i}
+              key={t.name}
               onClick={() => setActive(i)}
+              aria-label={`Show review by ${t.name}`}
               className={`
-                relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-background transition-all duration-300 ease-out
+                relative h-10 w-10 overflow-hidden rounded-full ring-2 ring-white transition-all duration-300 ease-out
                 ${active === i ? "z-10 scale-110" : "grayscale hover:scale-105 hover:grayscale-0"}
               `}
             >
@@ -74,23 +110,25 @@ export function TestimonialsMinimal() {
           ))}
         </div>
 
-        <div className="h-8 w-px bg-border" />
+        <div className="h-8 w-px bg-zinc-300" />
 
         <div className="relative min-h-[44px] flex-1">
           {testimonials.map((t, i) => (
             <div
-              key={i}
+              key={t.name}
               className={`
                 absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-out
                 ${active === i ? "translate-x-0 opacity-100" : "pointer-events-none -translate-x-2 opacity-0"}
               `}
             >
-              <span className="text-sm font-medium text-foreground">{t.name}</span>
-              <span className="text-xs text-muted-foreground">{t.role}</span>
+              <span className="font-sans text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-zinc-700">
+                {t.name}
+              </span>
+              <span className="mt-1 text-xs text-zinc-500">{t.role}</span>
             </div>
           ))}
         </div>
       </div>
     </div>
-  )
+  );
 }

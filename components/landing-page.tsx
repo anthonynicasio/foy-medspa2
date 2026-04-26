@@ -1,9 +1,6 @@
-import { useEffect, useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
 import {
   BookOpen,
-  ChevronLeft,
-  ChevronRight,
   CalendarDays,
   Leaf,
   Menu,
@@ -13,6 +10,10 @@ import {
   Star,
   Stethoscope,
 } from 'lucide-react';
+import {
+  TestimonialsMinimal,
+  type MinimalTestimonialItem,
+} from '@/components/ui/minimal-testimonial';
 
 const categoryItems = [
   {
@@ -118,7 +119,7 @@ const staffMembers = [
   },
 ];
 
-const reviewSlides = [
+const reviewSlides: MinimalTestimonialItem[] = [
   {
     quote:
       "I've been seeing Taylor Watters for a year now for various skin treatments. Every experience with her has been fantastic! Highly recommend her services when you book at Fountain of Youth Spa!!! I've also seen Lynn for laser hair and IPL treatments. She is great as well! Everyone there is very nice, I always feel welcome and comfortable. All the ladies are also great when I have questions about product recommendations, without being pushy on sales. Cannot recommend the Saint Augustine location enough - it's FANTASTIC!",
@@ -166,47 +167,8 @@ const footerSections = ['Treatments', 'About', 'Contact'];
 
 const uiTextClass =
   'font-sans text-[0.68rem] font-semibold uppercase tracking-[0.2em]';
-const reviewAutoAdvanceMs = 6000;
 
 export function LandingPage() {
-  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
-  const activeReview = reviewSlides[activeReviewIndex];
-
-  useEffect(() => {
-    if (typeof window === 'undefined') {
-      return undefined;
-    }
-
-    // Respect reduced motion preferences while still supporting manual nav.
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-    if (prefersReducedMotion) {
-      return undefined;
-    }
-
-    const intervalId = window.setInterval(() => {
-      setActiveReviewIndex((currentIndex) => (currentIndex + 1) % reviewSlides.length);
-    }, reviewAutoAdvanceMs);
-
-    return () => {
-      window.clearInterval(intervalId);
-    };
-  }, []);
-
-  const handlePreviousReview = () => {
-    setActiveReviewIndex((currentIndex) => {
-      if (currentIndex === 0) {
-        return reviewSlides.length - 1;
-      }
-      return currentIndex - 1;
-    });
-  };
-
-  const handleNextReview = () => {
-    setActiveReviewIndex((currentIndex) => (currentIndex + 1) % reviewSlides.length);
-  };
-
   return (
     <div className="bg-white text-zinc-900">
       <div className="bg-zinc-900 px-4 py-2 text-center text-[0.62rem] font-medium uppercase tracking-[0.22em] text-white sm:text-xs">
@@ -414,38 +376,11 @@ export function LandingPage() {
             </div>
 
             <div className="mt-10 border-y border-zinc-300 py-10">
-              <p className="text-center font-display text-[1.9rem] leading-[1] text-zinc-900 sm:text-[3.3rem]">
-                &ldquo;{activeReview.quote}&rdquo;
-              </p>
-              <p className="mt-6 text-center font-sans text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-zinc-600">
-                {activeReview.author}
-              </p>
-              <p className="mt-2 text-center text-xs text-zinc-500">{activeReview.details}</p>
-              {activeReview.services && (
-                <p className="mx-auto mt-4 max-w-3xl text-center text-xs leading-5 text-zinc-600">
-                  <span className={`mr-1 ${uiTextClass}`}>Services:</span>
-                  {activeReview.services}
-                </p>
-              )}
-
-              <div className="mt-8 flex items-center justify-center gap-3">
-                <button
-                  type="button"
-                  aria-label="Previous review"
-                  onClick={handlePreviousReview}
-                  className="inline-flex h-11 w-11 items-center justify-center border border-zinc-300 bg-white text-zinc-800 transition hover:border-zinc-500"
-                >
-                  <ChevronLeft className="h-5 w-5" strokeWidth={1.25} />
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next review"
-                  onClick={handleNextReview}
-                  className="inline-flex h-11 w-11 items-center justify-center border border-zinc-300 bg-white text-zinc-800 transition hover:border-zinc-500"
-                >
-                  <ChevronRight className="h-5 w-5" strokeWidth={1.25} />
-                </button>
-              </div>
+              <TestimonialsMinimal
+                testimonials={reviewSlides}
+                autoAdvanceMs={6000}
+                className="max-w-4xl px-0 py-0"
+              />
             </div>
           </div>
         </section>
