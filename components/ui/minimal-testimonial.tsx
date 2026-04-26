@@ -53,26 +53,26 @@ function TestimonialBody({
   testimonial: MinimalTestimonialItem;
 }) {
   return (
-    <>
-      <blockquote className="mx-auto max-w-[34ch]">
-        <p className="font-display text-[1.08rem] leading-[1.34] tracking-[-0.004em] text-zinc-900 sm:text-[1.24rem] sm:leading-[1.3] md:text-[1.42rem] md:leading-[1.3]">
+    <div className="h-full overflow-y-auto pr-2 [scrollbar-width:thin]">
+      <blockquote className="mx-auto max-w-[60ch]">
+        <p className="font-display text-[12pt] leading-[1.48] tracking-[-0.002em] text-zinc-900">
           &ldquo;{testimonial.quote}&rdquo;
         </p>
       </blockquote>
       {testimonial.details && (
-        <p className="mx-auto mt-4 max-w-[34ch] font-sans text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+        <p className="mx-auto mt-4 max-w-[60ch] font-sans text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
           {testimonial.details}
         </p>
       )}
       {testimonial.services && (
-        <p className="mx-auto mt-2.5 max-w-[34ch] font-sans text-[0.84rem] leading-6 text-zinc-600">
+        <p className="mx-auto mt-2.5 max-w-[60ch] font-sans text-[0.84rem] leading-6 text-zinc-600">
           <span className="mr-1 text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-zinc-700">
             Services:
           </span>
           {testimonial.services}
         </p>
       )}
-    </>
+    </div>
   );
 }
 
@@ -199,21 +199,14 @@ export function TestimonialsMinimal({
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="mb-10 grid">
-        {testimonials.map((testimonial, index) => (
+      <div className="mb-10 mx-auto w-full max-w-4xl border border-zinc-300 bg-white p-5 sm:p-6">
+        <div className="h-[26rem] sm:h-[24rem]">
           <div
-            key={`measure-${index}`}
-            aria-hidden="true"
-            className="invisible pointer-events-none row-start-1 col-start-1 select-none"
+            className={`h-full transition-all ease-out will-change-transform ${textMotionClass}`}
+            style={{ transitionDuration: `${transitionDurationMs}ms` }}
           >
-            <TestimonialBody testimonial={testimonial} />
+            <TestimonialBody testimonial={activeTestimonial} />
           </div>
-        ))}
-        <div
-          className={`row-start-1 col-start-1 transition-all ease-out will-change-transform ${textMotionClass}`}
-          style={{ transitionDuration: `${transitionDurationMs}ms` }}
-        >
-          <TestimonialBody testimonial={activeTestimonial} />
         </div>
       </div>
 
