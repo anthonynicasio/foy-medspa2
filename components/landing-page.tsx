@@ -368,7 +368,7 @@ export function LandingPage() {
                 {Array.from({ length: 5 }).map((_, index) => (
                   <Star
                     key={`review-star-${index}`}
-                    className="h-4 w-4"
+                    className="h-4 w-4 fill-current"
                     strokeWidth={1.2}
                   />
                 ))}
@@ -378,7 +378,7 @@ export function LandingPage() {
             <div className="mt-10 border-y border-zinc-300 py-10">
               <TestimonialsMinimal
                 testimonials={reviewSlides}
-                autoAdvanceMs={6000}
+                autoAdvanceMs={5000}
                 className="max-w-4xl px-0 py-0"
               />
             </div>

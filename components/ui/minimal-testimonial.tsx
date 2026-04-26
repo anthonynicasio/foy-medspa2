@@ -44,12 +44,41 @@ type TestimonialsMinimalProps = {
   className?: string;
 };
 
-const transitionDurationMs = 420;
-const transitionExitLeadMs = 220;
+const transitionDurationMs = 380;
+const transitionExitLeadMs = 190;
+
+function TestimonialBody({
+  testimonial,
+}: {
+  testimonial: MinimalTestimonialItem;
+}) {
+  return (
+    <>
+      <blockquote className="mx-auto max-w-[34ch]">
+        <p className="font-display text-[1.08rem] leading-[1.34] tracking-[-0.004em] text-zinc-900 sm:text-[1.24rem] sm:leading-[1.3] md:text-[1.42rem] md:leading-[1.3]">
+          &ldquo;{testimonial.quote}&rdquo;
+        </p>
+      </blockquote>
+      {testimonial.details && (
+        <p className="mx-auto mt-4 max-w-[34ch] font-sans text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
+          {testimonial.details}
+        </p>
+      )}
+      {testimonial.services && (
+        <p className="mx-auto mt-2.5 max-w-[34ch] font-sans text-[0.84rem] leading-6 text-zinc-600">
+          <span className="mr-1 text-[0.56rem] font-semibold uppercase tracking-[0.18em] text-zinc-700">
+            Services:
+          </span>
+          {testimonial.services}
+        </p>
+      )}
+    </>
+  );
+}
 
 export function TestimonialsMinimal({
   testimonials = defaultTestimonials,
-  autoAdvanceMs = 6000,
+  autoAdvanceMs = 5000,
   className = "",
 }: TestimonialsMinimalProps) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -85,6 +114,16 @@ export function TestimonialsMinimal({
     const seedIndex = queuedIndex ?? activeIndex;
     requestIndex(seedIndex - 1);
   };
+
+  useEffect(() => {
+    setActiveIndex((currentIndex) =>
+      testimonials.length === 0
+        ? 0
+        : Math.min(currentIndex, testimonials.length - 1),
+    );
+    setQueuedIndex(null);
+    setPhase("idle");
+  }, [testimonials.length]);
 
   useEffect(() => {
     if (phase !== "exiting" || queuedIndex === null) {
@@ -154,32 +193,27 @@ export function TestimonialsMinimal({
       className={`mx-auto w-full max-w-5xl py-3 ${className}`.trim()}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+      onTouchCancel={() => setIsPaused(false)}
       onFocusCapture={() => setIsPaused(true)}
       onBlurCapture={() => setIsPaused(false)}
     >
-      <div className="mb-10 min-h-[24rem] sm:min-h-[20rem] md:min-h-[18rem]">
+      <div className="mb-10 grid">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={`measure-${index}`}
+            aria-hidden="true"
+            className="invisible pointer-events-none row-start-1 col-start-1 select-none"
+          >
+            <TestimonialBody testimonial={testimonial} />
+          </div>
+        ))}
         <div
-          className={`transition-all ease-out ${textMotionClass}`}
+          className={`row-start-1 col-start-1 transition-all ease-out will-change-transform ${textMotionClass}`}
           style={{ transitionDuration: `${transitionDurationMs}ms` }}
         >
-          <blockquote className="mx-auto max-w-[34ch]">
-            <p className="font-display text-[1.38rem] leading-[1.16] tracking-[-0.01em] text-zinc-900 sm:text-[1.8rem] sm:leading-[1.1] md:text-[2.3rem]">
-              &ldquo;{activeTestimonial.quote}&rdquo;
-            </p>
-          </blockquote>
-          {activeTestimonial.details && (
-            <p className="mx-auto mt-5 max-w-[34ch] font-sans text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-zinc-600">
-              {activeTestimonial.details}
-            </p>
-          )}
-          {activeTestimonial.services && (
-            <p className="mx-auto mt-3 max-w-[34ch] text-sm leading-6 text-zinc-600">
-              <span className="mr-1 font-sans text-[0.58rem] font-semibold uppercase tracking-[0.18em] text-zinc-700">
-                Services:
-              </span>
-              {activeTestimonial.services}
-            </p>
-          )}
+          <TestimonialBody testimonial={activeTestimonial} />
         </div>
       </div>
 
