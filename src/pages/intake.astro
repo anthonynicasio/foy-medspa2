@@ -1,0 +1,662 @@
+---
+import '../styles/global.css';
+
+const revenueServices = [
+  'Wrinkle Reducers (Botox, Xeomin)',
+  'Dermal Fillers',
+  'Lip Fillers',
+  'Skin Lasers',
+  'Laser Hair Removal',
+  'Tattoo Removal (Picoway)',
+  'Skincare / Facials',
+  'Weight Loss Shots',
+  'Bioidentical Hormones',
+  'Memberships',
+];
+
+const brandWords = [
+  'Trustworthy',
+  'Luxurious',
+  'Approachable',
+  'Modern',
+  'Natural',
+  'Expert',
+  'Warm',
+  'Calming',
+  'Confident',
+  'Premium',
+  'Honest',
+  'Empowering',
+];
+
+const photoshootInterests = [
+  'Provider portraits',
+  'Treatment rooms',
+  'Reception / lobby',
+  'Treatments in action',
+  'Product flatlays',
+  'Client experience',
+  'Equipment / tech',
+  'Exterior / location',
+];
+
+const bookingSources = [
+  'Instagram',
+  'Facebook',
+  'Google search',
+  'Word of mouth / referrals',
+  'Direct (website / phone)',
+  'Walk-ins',
+  'Email newsletter',
+  'Other',
+];
+
+const sections = [
+  {
+    number: '01',
+    eyebrow: 'The basics',
+    title: 'Quick contact details',
+  },
+  {
+    number: '02',
+    eyebrow: 'Your business today',
+    title: 'Help me understand the spa',
+  },
+  {
+    number: '03',
+    eyebrow: 'Goals & success',
+    title: 'What does winning look like?',
+  },
+  {
+    number: '04',
+    eyebrow: 'Brand & voice',
+    title: 'How you sound and look',
+  },
+  {
+    number: '05',
+    eyebrow: 'Content & assets',
+    title: 'What you have, what we need',
+  },
+  {
+    number: '06',
+    eyebrow: 'Logistics',
+    title: 'Timeline, budget, ongoing',
+  },
+  {
+    number: '07',
+    eyebrow: 'Anything else',
+    title: 'Last but important',
+  },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Project discovery intake form for the Fountain of Youth Spa website redesign."
+    />
+    <title>Project Discovery | Fountain of Youth</title>
+  </head>
+  <body class="surface-cream text-espresso antialiased">
+    <main class="min-h-screen overflow-hidden">
+      <section class="surface-cream grain relative px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+        <div class="pointer-events-none absolute inset-x-0 top-0 -z-10">
+          <div class="absolute left-1/2 h-64 w-3/5 -translate-x-1/2 scale-[2.5] rounded-[50%] bg-[radial-gradient(ellipse_at_center,_hsl(var(--brand-foreground)/0.38)_10%,_transparent_60%)] sm:h-[512px]"></div>
+          <div class="absolute left-1/2 h-32 w-2/5 -translate-x-1/2 scale-[2] rounded-[50%] bg-[radial-gradient(ellipse_at_center,_hsl(var(--brand)/0.18)_10%,_transparent_60%)] sm:h-64"></div>
+        </div>
+
+        <div class="mx-auto max-w-6xl">
+          <a href="/" class="inline-flex rounded-full border border-espresso/10 bg-white/55 px-5 py-3 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-espresso shadow-sm backdrop-blur transition hover:bg-white">
+            Fountain of Youth
+          </a>
+
+          <div class="mt-16 grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+            <div>
+              <p class="text-sm font-medium uppercase tracking-[0.38em] text-clay">Project discovery</p>
+              <h1 class="mt-7 max-w-3xl font-display text-6xl leading-[0.92] tracking-[-0.035em] sm:text-7xl lg:text-8xl">
+                Let's design something beautiful together.
+              </h1>
+            </div>
+            <div class="rounded-[2rem] border border-white/65 bg-white/45 p-6 shadow-soft backdrop-blur-xl sm:p-8">
+              <p class="text-lg font-light leading-8 text-espresso/72">
+                A few thoughtful questions to help me understand your business, your goals,
+                and what success looks like - so we can build something that truly reflects
+                Fountain of Youth.
+              </p>
+              <div class="mt-7 flex flex-wrap gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-espresso/58">
+                <span class="rounded-full border border-espresso/10 bg-cream/70 px-4 py-2">10-15 minutes</span>
+                <span class="rounded-full border border-espresso/10 bg-cream/70 px-4 py-2">Save anytime</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <form
+        name="fountain-of-youth-project-discovery"
+        method="POST"
+        action="/intake/?submitted=true"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        data-intake-form
+        class="surface-cream-soft grain relative px-5 pb-24 sm:px-8 lg:px-10"
+      >
+        <input type="hidden" name="form-name" value="fountain-of-youth-project-discovery" />
+        <p class="hidden">
+          <label>Do not fill this out if you are human: <input name="bot-field" /></label>
+        </p>
+
+        <div class="mx-auto max-w-6xl space-y-5">
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[0].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[0].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[0].title}</h2>
+              </div>
+              <div class="grid gap-5 md:grid-cols-2">
+                <label class="field">
+                  <span>Your name*</span>
+                  <input required type="text" name="name" autocomplete="name" />
+                </label>
+                <label class="field">
+                  <span>Your role at Fountain of Youth*</span>
+                  <input required type="text" name="role" />
+                </label>
+                <label class="field">
+                  <span>Best email*</span>
+                  <input required type="email" name="email" autocomplete="email" />
+                </label>
+                <label class="field">
+                  <span>Best phone</span>
+                  <input type="tel" name="phone" autocomplete="tel" />
+                </label>
+                <label class="field md:col-span-2">
+                  <span>Who else will be involved in approving the work?</span>
+                  <textarea name="approvers" rows="4" placeholder="Names and roles of anyone who needs to sign off - partners, marketing leads, etc."></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[1].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[1].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[1].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <label class="field">
+                  <span>In one or two sentences, how would you describe Fountain of Youth to someone who's never heard of you?</span>
+                  <textarea name="business_description" rows="4"></textarea>
+                </label>
+                <label class="field">
+                  <span>Who is your ideal client?</span>
+                  <textarea name="ideal_client" rows="4" placeholder="Age range, lifestyle, what they're looking for, what they're not looking for."></textarea>
+                </label>
+                <label class="field">
+                  <span>What makes Fountain of Youth different from other med spas in the area?</span>
+                  <textarea name="differentiators" rows="4" placeholder="The honest answer - what do clients tell you when they explain why they chose you?"></textarea>
+                </label>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Which services drive the most revenue?</legend>
+                  <p class="text-sm leading-6 text-espresso/58">Check all that are top earners - this helps prioritize which pages to design first.</p>
+                  <div class="grid gap-3 md:grid-cols-2">
+                    {revenueServices.map((service) => (
+                      <label class="check-card">
+                        <input type="checkbox" name="revenue_services" value={service} />
+                        <span>{service}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <label class="field">
+                  <span>Are there any services you'd like to grow or promote more aggressively?</span>
+                  <textarea name="growth_services" rows="4"></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[2].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[2].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[2].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <label class="field">
+                  <span>If this project is a complete success, what changes in your business 6 months from now?</span>
+                  <textarea name="six_month_success" rows="4" placeholder="More bookings? Higher-value clients? Less time answering basic questions? Be specific."></textarea>
+                </label>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">What's the #1 action you want website visitors to take?</legend>
+                  <div class="grid gap-3 md:grid-cols-2">
+                    <label class="option-card">
+                      <input required type="radio" name="primary_action" value="Book an appointment online" />
+                      <span>
+                        <strong>Book an appointment online</strong>
+                        <small>Direct conversion through Mangomint</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="primary_action" value="Call to schedule a consultation" />
+                      <span>
+                        <strong>Call to schedule a consultation</strong>
+                        <small>Phone is the primary booking channel</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="primary_action" value="Sign up for the membership program" />
+                      <span>
+                        <strong>Sign up for the membership program</strong>
+                        <small>Build recurring revenue</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="primary_action" value="Learn about a specific treatment" />
+                      <span>
+                        <strong>Learn about a specific treatment</strong>
+                        <small>Education-first approach</small>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <label class="field">
+                  <span>What's currently frustrating about your existing website?</span>
+                  <textarea name="website_frustrations" rows="4" placeholder="Be honest - this is the most useful question you'll answer."></textarea>
+                </label>
+                <label class="field">
+                  <span>Are there any websites - med spa or otherwise - whose design you admire?</span>
+                  <textarea name="admired_websites" rows="4" placeholder="Drop links or just describe the vibe. Helps calibrate to your taste."></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[3].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[3].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[3].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Which words describe how you want clients to feel about your brand?</legend>
+                  <p class="text-sm leading-6 text-espresso/58">Pick up to 5.</p>
+                  <div class="grid gap-3 md:grid-cols-3">
+                    {brandWords.map((word) => (
+                      <label class="check-card">
+                        <input type="checkbox" name="brand_words" value={word} />
+                        <span>{word}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+                <label class="field">
+                  <span>What words or vibes do you want to avoid?</span>
+                  <textarea name="avoid_vibes" rows="4" placeholder='e.g., "clinical," "cheap," "trendy," "salesy" - what does not fit your brand?'></textarea>
+                </label>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Do you have a logo file, brand colors, or fonts you'd like me to use?</legend>
+                  <div class="grid gap-3">
+                    <label class="option-card">
+                      <input type="radio" name="brand_assets" value="Yes, I'll send the brand files" />
+                      <span>
+                        <strong>Yes, I'll send the brand files</strong>
+                        <small>Logo, colors, fonts - the works</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="brand_assets" value="I have a logo but no formal brand guide" />
+                      <span>
+                        <strong>I have a logo but no formal brand guide</strong>
+                        <small>We'll build the visual system together</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="brand_assets" value="I'd love a fresh visual direction" />
+                      <span>
+                        <strong>I'd love a fresh visual direction</strong>
+                        <small>Open to recommendations on colors and typography</small>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[4].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[4].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[4].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Do you have professional photos of your team, treatment rooms, or facilities?</legend>
+                  <div class="grid gap-3">
+                    <label class="option-card">
+                      <input type="radio" name="professional_photos" value="Yes, recent professional photos" />
+                      <span>
+                        <strong>Yes, recent professional photos</strong>
+                        <small>Less than 2 years old, high resolution</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="professional_photos" value="Some photos, but they could be better" />
+                      <span>
+                        <strong>Some photos, but they could be better</strong>
+                        <small>Mix of older or phone-quality images</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="professional_photos" value="Interested in a fresh photoshoot" />
+                      <span>
+                        <strong>Interested in a fresh photoshoot</strong>
+                        <small>I have a photographer ready to coordinate this</small>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">If we did a photoshoot, what would you want to capture?</legend>
+                  <div class="grid gap-3 md:grid-cols-2">
+                    {photoshootInterests.map((item) => (
+                      <label class="check-card">
+                        <input type="checkbox" name="photoshoot_interests" value={item} />
+                        <span>{item}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Do you have written content for the new pages, or would you like me to draft it?</legend>
+                  <div class="grid gap-3">
+                    <label class="option-card">
+                      <input type="radio" name="copywriting_support" value="I'll provide all the copy" />
+                      <span>
+                        <strong>I'll provide all the copy</strong>
+                        <small>Treatment descriptions, about us, etc.</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="copywriting_support" value="Mix - I have some, need help with the rest" />
+                      <span>
+                        <strong>Mix - I have some, need help with the rest</strong>
+                        <small>Let's talk about which sections</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="copywriting_support" value="Please draft everything for my review" />
+                      <span>
+                        <strong>Please draft everything for my review</strong>
+                        <small>Copywriting included in scope</small>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <label class="field">
+                  <span>What integrations or tools must the site connect to?</span>
+                  <textarea name="integrations" rows="4" placeholder="I already see Mangomint, CareCredit, Cherry, Merz Xperience+ - anything else?"></textarea>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-[2rem] border border-espresso/10 bg-white/56 p-5 shadow-soft backdrop-blur-xl sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-clay">{sections[5].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-clay">{sections[5].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl leading-none">{sections[5].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <label class="field">
+                  <span>Is there an ideal launch date in mind?</span>
+                  <input type="text" name="ideal_launch_date" placeholder="Special promotion, season, anniversary, anything driving the timing." />
+                </label>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">After launch, would you like ongoing support?</legend>
+                  <div class="grid gap-3">
+                    <label class="option-card">
+                      <input type="radio" name="ongoing_support" value="Yes - I want a monthly partner" />
+                      <span>
+                        <strong>Yes - I want a monthly partner</strong>
+                        <small>Newsletter, seasonal updates, Google profile, small fixes</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="ongoing_support" value="Maybe - let's see how launch goes" />
+                      <span>
+                        <strong>Maybe - let's see how launch goes</strong>
+                        <small>Open to revisiting the conversation later</small>
+                      </span>
+                    </label>
+                    <label class="option-card">
+                      <input type="radio" name="ongoing_support" value="Just the launch, we'll handle the rest" />
+                      <span>
+                        <strong>Just the launch, we'll handle the rest</strong>
+                        <small>In-house team or another vendor</small>
+                      </span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold uppercase tracking-[0.18em] text-espresso/70">Where do most of your bookings come from today?</legend>
+                  <div class="grid gap-3 md:grid-cols-2">
+                    {bookingSources.map((source) => (
+                      <label class="check-card">
+                        <input type="checkbox" name="booking_sources" value={source} />
+                        <span>{source}</span>
+                      </label>
+                    ))}
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+          </section>
+
+          <section class="surface-espresso grain-light rounded-[2rem] border border-cream/10 p-5 text-cream shadow-soft sm:p-8 lg:p-10">
+            <div class="grid gap-8 lg:grid-cols-[12rem_1fr]">
+              <div>
+                <p class="font-display text-5xl text-blush">{sections[6].number}</p>
+                <p class="mt-5 text-xs font-semibold uppercase tracking-[0.28em] text-blush">{sections[6].eyebrow}</p>
+                <h2 class="mt-4 font-display text-4xl font-medium leading-none tracking-[0.015em]">{sections[6].title}</h2>
+              </div>
+              <div class="space-y-6">
+                <label class="field field-dark">
+                  <span>Is there anything I haven't asked that you think I should know?</span>
+                  <textarea name="anything_else" rows="6" placeholder="Concerns, hopes, past bad experiences with designers, family business dynamics - anything that helps me serve you well."></textarea>
+                </label>
+                <div class="rounded-[1.5rem] border border-cream/10 bg-cream/[0.05] p-5">
+                  <p class="text-sm font-semibold uppercase tracking-[0.24em] text-blush">What happens next</p>
+                  <p class="mt-4 text-lg font-light leading-8 text-cream/74">
+                    Once you submit, I'll review your responses within 24 hours and send back a tailored proposal - including scope, timeline, and a fixed price for each phase. From there, we'll hop on a call to align on details and get started.
+                  </p>
+                </div>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-full bg-cream px-8 py-4 text-sm font-bold uppercase tracking-[0.22em] text-espresso shadow-soft transition hover:bg-blush sm:w-auto"
+                >
+                  Submit discovery form
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      const form = document.querySelector('[data-intake-form]');
+      const storageKey = 'foy-project-discovery-draft';
+
+      if (form instanceof HTMLFormElement) {
+        const saved = localStorage.getItem(storageKey);
+
+        if (saved) {
+          const data = JSON.parse(saved);
+          const fields = form.querySelectorAll('input, textarea');
+
+          fields.forEach((field) => {
+            if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) return;
+            if (!field.name || field.name === 'form-name' || field.name === 'bot-field') return;
+
+            const value = data[field.name];
+            if (value === undefined) return;
+
+            if (field instanceof HTMLInputElement && (field.type === 'checkbox' || field.type === 'radio')) {
+              field.checked = Array.isArray(value) ? value.includes(field.value) : value === field.value;
+              return;
+            }
+
+            field.value = String(value);
+          });
+        }
+
+        form.addEventListener('input', () => {
+          const data = {};
+          const formData = new FormData(form);
+
+          formData.forEach((value, key) => {
+            if (key === 'form-name' || key === 'bot-field') return;
+            const stringValue = String(value);
+
+            if (data[key] === undefined) {
+              data[key] = stringValue;
+              return;
+            }
+
+            data[key] = Array.isArray(data[key])
+              ? [...data[key], stringValue]
+              : [data[key], stringValue];
+          });
+
+          localStorage.setItem(storageKey, JSON.stringify(data));
+        });
+
+        form.addEventListener('submit', () => {
+          localStorage.removeItem(storageKey);
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .field {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .field span,
+  fieldset legend {
+    color: rgb(45 41 38 / 0.78);
+  }
+
+  .field input,
+  .field textarea {
+    width: 100%;
+    border-radius: 1.25rem;
+    border: 1px solid rgb(45 41 38 / 0.12);
+    background: rgb(255 255 255 / 0.62);
+    padding: 1rem 1.1rem;
+    color: #2D2926;
+    outline: none;
+    box-shadow: 0 1px 0 rgb(255 255 255 / 0.65) inset;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .field textarea {
+    resize: vertical;
+  }
+
+  .field input:focus,
+  .field textarea:focus {
+    border-color: rgb(155 122 103 / 0.55);
+    background: rgb(255 255 255 / 0.82);
+    box-shadow: 0 0 0 4px rgb(155 122 103 / 0.12);
+  }
+
+  .field-dark span {
+    color: rgb(245 245 240 / 0.76);
+  }
+
+  .field-dark textarea {
+    border-color: rgb(245 245 240 / 0.14);
+    background: rgb(245 245 240 / 0.06);
+    color: #F5F5F0;
+  }
+
+  .check-card,
+  .option-card {
+    display: flex;
+    gap: 0.85rem;
+    border-radius: 1.25rem;
+    border: 1px solid rgb(45 41 38 / 0.10);
+    background: rgb(255 255 255 / 0.46);
+    padding: 1rem;
+    color: rgb(45 41 38 / 0.76);
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .option-card {
+    align-items: flex-start;
+  }
+
+  .check-card {
+    align-items: center;
+  }
+
+  .check-card:hover,
+  .option-card:hover {
+    border-color: rgb(155 122 103 / 0.32);
+    background: rgb(255 255 255 / 0.66);
+    transform: translateY(-1px);
+  }
+
+  .check-card input,
+  .option-card input {
+    margin-top: 0.2rem;
+    accent-color: #9B7A67;
+  }
+
+  .option-card strong {
+    display: block;
+    color: #2D2926;
+    font-weight: 650;
+  }
+
+  .option-card small {
+    margin-top: 0.35rem;
+    display: block;
+    color: rgb(45 41 38 / 0.56);
+    line-height: 1.5;
+  }
+</style>
