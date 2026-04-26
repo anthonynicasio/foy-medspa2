@@ -1,11 +1,9 @@
-import { Hero } from "@/components/ui/animated-hero";
+import { TestimonialsMinimal } from "@/components/ui/minimal-testimonial";
 
-function HeroDemo() {
+export default function Home() {
   return (
-    <div className="block">
-      <Hero />
-    </div>
+    <main className="flex min-h-screen w-full items-center justify-center bg-background p-8">
+      <TestimonialsMinimal />
+    </main>
   );
 }
-
-export { HeroDemo };
