@@ -15,46 +15,46 @@ import TestimonialSection from '@/components/ui/testimonials';
 const categoryItems = [
   {
     label: 'INJECTABLES',
-    image: '/images/medspa/confident-portrait.jpg',
-    alt: 'Model portrait with luminous skin',
+    image: '/images/medspa/filler-treatment-cheek.png',
+    alt: 'Provider performing a cheek filler treatment',
   },
   {
     label: 'LASERS',
-    image: '/images/medspa/light-skin-detail.jpg',
-    alt: 'Close up skin texture in soft light',
+    image: '/images/medspa/clean-shoulder-portrait.png',
+    alt: 'Clean skin portrait with soft studio light',
   },
   {
     label: 'WELLNESS',
-    image: '/images/medspa/facial-treatment.jpg',
-    alt: 'Calm treatment room scene',
+    image: '/images/medspa/wellness-active-client.png',
+    alt: 'Active wellness client smiling outdoors',
   },
   {
     label: 'SKINCARE',
-    image: '/images/medspa/serum-dropper.jpg',
-    alt: 'Skincare serum macro detail',
+    image: '/images/medspa/face-roller-skincare.png',
+    alt: 'Close up skincare face roller treatment',
   },
 ];
 
 const vibeCards = [
   {
     title: 'More Radiant',
-    image: '/images/medspa/radiant-skin-detail.jpg',
-    alt: 'Radiant complexion portrait',
+    image: '/images/medspa/natural-glow-portrait.png',
+    alt: 'Smiling portrait with healthy glowing skin',
   },
   {
     title: 'More Sculpted',
-    image: '/images/medspa/soft-reflection-face.jpg',
-    alt: 'Editorial profile in reflected light',
+    image: '/images/medspa/glowing-skin-hands-face.png',
+    alt: 'Beauty portrait framing sculpted cheeks',
   },
   {
     title: 'More Rested',
-    image: '/images/medspa/hero-calm-face.jpg',
-    alt: 'Relaxed face in soft natural light',
+    image: '/images/medspa/towel-skincare-routine.png',
+    alt: 'Calm skincare routine with towel wrap',
   },
   {
     title: 'More Balanced',
-    image: '/images/medspa/provider-mask-treatment.jpg',
-    alt: 'Provider guided facial treatment',
+    image: '/images/medspa/radiant-client-duo.png',
+    alt: 'Two clients smiling with radiant skin',
   },
 ];
 
@@ -178,9 +178,9 @@ export function LandingPage() {
       <main>
         <section className="relative h-screen overflow-hidden bg-zinc-900">
           <img
-            src="/images/medspa/hero-calm-face.jpg"
-            alt="Serene spa environment with soft natural light"
-            className="h-full w-full object-cover object-center"
+            src="/images/medspa/diverse-beauty-group.png"
+            alt="Diverse group of women with natural glowing skin"
+            className="h-full w-full object-cover object-[50%_34%]"
             loading="eager"
             decoding="async"
           />
@@ -298,8 +298,8 @@ export function LandingPage() {
 
         <section className="relative overflow-hidden">
           <img
-            src="/images/medspa/provider-mask-treatment.jpg"
-            alt="Provider assisting a client in treatment room"
+            src="/images/medspa/botanical-clear-skin.png"
+            alt="Client portrait framed by lush botanical leaves"
             className="h-[72vh] w-full object-cover object-center"
             loading="lazy"
             decoding="async"
@@ -322,7 +322,7 @@ export function LandingPage() {
           <div className="mx-auto max-w-5xl">
             <div className="text-center">
               <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.18em] text-zinc-600">
-                4.9 / 5.0 based on 222 Google reviews
+                4.9 / 5.0 based on 223 Google reviews
               </p>
               <div className="mt-3 flex items-center justify-center gap-1 text-zinc-700">
                 {Array.from({ length: 5 }).map((_, index) => (
