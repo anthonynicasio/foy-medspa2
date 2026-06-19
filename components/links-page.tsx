@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import {
   ArrowUpRight,
   CreditCard,
-  Instagram,
   Mail,
   Phone,
   Sparkles,
@@ -335,7 +334,7 @@ function LinksPage() {
               href="https://www.instagram.com/custombeautymedstudio/"
               className="inline-flex items-center gap-2 transition hover:text-blush"
             >
-              <Instagram className="h-4 w-4" />
+              <Star className="h-4 w-4" />
               Instagram
             </ExternalAnchor>
             <p className="pt-2 text-xs text-cream/40">
