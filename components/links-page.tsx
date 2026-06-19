@@ -4,10 +4,8 @@ import type { ReactNode } from "react";
 import {
   ArrowUpRight,
   CreditCard,
-  Gift,
   Mail,
   Phone,
-  PlayCircle,
   Sparkles,
   Star,
 } from "lucide-react";
@@ -18,29 +16,31 @@ import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-const phone = "(904) 295-4595";
-const phoneHref = "tel:+19042954595";
-const email = "stauglaser@gmail.com";
-const bookingUrl = "https://booking.mangomint.com/737916";
+const phone = "(202) 410-1199";
+const phoneHref = "tel:+12024101199";
+const email = "info@custombeautymedstudio.com";
+const bookingUrl = "https://custom-beauty-med-studio.square.site/";
+const newsletterUrl =
+  "https://custombeautymedstudio.com/join-our-monthly-newsletter-for-discounts-deals/";
 
 const videos = [
   {
-    label: "Wrinkle Reducers",
-    title: "Tox treatment",
+    label: "Neurotoxins",
+    title: "Botox treatment",
     id: "LxGYB9NqfYM",
     src: "/videos/tox-treatment.mp4",
     poster: "/images/medspa/injectable-consult-portrait.png",
   },
   {
     label: "Injectables",
-    title: "Injectables",
+    title: "Dermal fillers",
     id: "2STRyyGiEBc",
     src: "/videos/injectables.mp4",
     poster: "/images/medspa/filler-treatment-cheek.png",
   },
   {
     label: "Lip Filler",
-    title: "Lip filler",
+    title: "Natural lip filler",
     id: "-nXrneYrUyA",
     src: "/videos/lip-filler.mp4",
     poster: "/images/medspa/glowing-skin-hands-face.png",
@@ -58,65 +58,65 @@ const links = [
   {
     eyebrow: "Primary",
     heading: "Book Your Visit",
-    text: "Schedule online through Mangomint.",
+    text: "Schedule online with Custom Beauty Med Studio.",
     href: bookingUrl,
     featured: true,
     image: "/images/medspa/warm-group-portrait.png",
     imagePosition: "object-[50%_42%]",
   },
   {
-    eyebrow: "Member",
-    heading: "Save 10% Every Visit",
-    text: "Join the membership for recurring care.",
-    href: "https://clients.mangomint.com/fountainofyouthspa/memberships/29",
+    eyebrow: "Newsletter",
+    heading: "Monthly Discounts + Deals",
+    text: "Join the newsletter for limited specials.",
+    href: newsletterUrl,
     image: "/images/medspa/radiant-client-duo.png",
     imagePosition: "object-[50%_38%]",
   },
   {
-    eyebrow: "Gift",
-    heading: "Send a Gift Card",
-    text: "Give someone a treatment they can choose.",
-    href: "https://clients.mangomint.com/gift-cards/737916",
+    eyebrow: "Service",
+    heading: "Natural Lip Filler",
+    text: "Enhance shape, hydration, and balance while keeping your lips elegant.",
+    href: "https://custombeautymedstudio.com/lip-filler/",
     image: "/images/medspa/face-roller-skincare.png",
     imagePosition: "object-center",
   },
   {
-    eyebrow: "Rewards",
-    heading: "Earn on Injectables",
-    text: "Access Xeomin Rewards through Merz Xperience+.",
-    href: "https://app.xperiencemerz.com/",
+    eyebrow: "Service",
+    heading: "Botox + Neurotoxins",
+    text: "Relax forehead lines, crow's feet, and expression lines with a customized plan.",
+    href: "https://custombeautymedstudio.com/botox-capitol-hill-washington-dc/",
     image: "/images/medspa/injectable-consult-portrait.png",
     imagePosition: "object-[52%_34%]",
   },
   {
-    eyebrow: "Financing",
-    heading: "Pay Over Time with CareCredit",
-    text: "Explore financing for eligible services.",
-    href: "https://www.carecredit.com/go/969ZGZ/",
+    eyebrow: "Service",
+    heading: "Morpheus8 Skin Tightening",
+    text: "Support smoother, firmer-looking skin on the face, neck, and chest.",
+    href: "https://custombeautymedstudio.com/morpheus8/",
     image: "/images/medspa/clean-shoulder-portrait.png",
     imagePosition: "object-[52%_45%]",
   },
   {
-    eyebrow: "Financing",
-    heading: "Apply with Cherry",
-    text: "Review Cherry payment plan options.",
-    href: "https://pay.withcherry.com/fountainofyouthspalaser/?utm_source=mobilepracticeportal",
+    eyebrow: "Service",
+    heading: "PRF Treatments",
+    text: "Use platelet rich fibrin to refresh skin or support sleepy hair follicles.",
+    href: "https://custombeautymedstudio.com/platelet-rich-fibrin/",
     image: "/images/medspa/weight-loss-injection.png",
     imagePosition: "object-[52%_52%]",
   },
   {
     eyebrow: "Site",
     heading: "Explore the Full Site",
-    text: "Visit the main Fountain of Youth website.",
-    href: "https://fountainofyouthspalaser.com/",
+    text: "Visit the main Custom Beauty website.",
+    href: "https://custombeautymedstudio.com/",
     image: "/images/medspa/botanical-clear-skin.png",
     imagePosition: "object-[50%_42%]",
   },
   {
-    eyebrow: "Reviews",
-    heading: "4.9 Stars on Google",
-    text: "Read 223 client reviews or share your experience.",
-    href: "https://g.page/r/CS_nA0tgMpSZEBE/review",
+    eyebrow: "Social",
+    heading: "Follow on Instagram",
+    text: "See treatment education, before-and-afters, and current specials.",
+    href: "https://www.instagram.com/custombeautymedstudio/",
     image: "/images/medspa/happy-skincare-duo.png",
     imagePosition: "object-[50%_38%]",
   },
@@ -190,11 +190,11 @@ function LinksPage() {
               {links.map((link) => {
                 const LinkIcon = link.featured
                   ? Sparkles
-                  : link.eyebrow === "Gift"
-                    ? Gift
+                  : link.eyebrow === "Newsletter"
+                    ? Mail
                     : link.eyebrow === "Financing"
                       ? CreditCard
-                      : link.eyebrow === "Reviews"
+                      : link.eyebrow === "Social"
                         ? Star
                         : link.eyebrow === "Contact"
                           ? Mail
@@ -312,9 +312,9 @@ function LinksPage() {
       <footer id="contact" className="surface-espresso grain-light relative overflow-hidden px-5 py-12 text-cream sm:px-8 lg:px-10">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-display text-3xl tracking-tight">Fountain of Youth Spa</p>
+            <p className="font-display text-3xl tracking-tight">Custom Beauty Med Studio</p>
             <p className="mt-4 text-sm leading-7 text-cream/60">
-              St. Augustine, FL · Jacksonville Beach, FL
+              Capitol Hill · Washington, DC
             </p>
             <p className="mt-2 text-xs uppercase tracking-[0.24em] text-cream/45">
               Concept design — not the official site
@@ -331,14 +331,14 @@ function LinksPage() {
               {phone}
             </a>
             <ExternalAnchor
-              href="https://www.youtube.com/@fountainofyouthspalasercen3249"
+              href="https://www.instagram.com/custombeautymedstudio/"
               className="inline-flex items-center gap-2 transition hover:text-blush"
             >
-              <PlayCircle className="h-4 w-4" />
-              YouTube
+              <Star className="h-4 w-4" />
+              Instagram
             </ExternalAnchor>
             <p className="pt-2 text-xs text-cream/40">
-              © {new Date().getFullYear()} Fountain of Youth Spa & Laser Center
+              © {new Date().getFullYear()} Custom Beauty Med Studio
             </p>
           </div>
         </div>
