@@ -28,7 +28,7 @@ function Hero() {
               size="sm"
               className="gap-3 rounded-full border border-espresso/10 bg-white/60 px-5 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-espresso shadow-sm backdrop-blur hover:bg-white"
             >
-              Saint Augustine, FL · Since 1999 <MoveRight className="h-4 w-4" />
+              Capitol Hill, Washington DC <MoveRight className="h-4 w-4" />
             </Button>
           </div>
           <div className="flex max-w-3xl flex-col gap-6">
@@ -46,9 +46,9 @@ function Hero() {
             </h1>
 
             <p className="max-w-2xl text-lg leading-8 tracking-tight text-espresso/70 sm:text-xl sm:leading-9">
-              Fountain of Youth Spa & Laser Center pairs provider-led
-              injectables, lasers, skincare, tattoo removal, and wellness with a
-              subtle, natural point of view.
+              Custom Beauty Med Studio pairs customized injectables, skin
+              tightening, PRF, body contouring, and wellness-minded aesthetics
+              with a subtle, natural point of view.
             </p>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">

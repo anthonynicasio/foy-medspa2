@@ -1,6 +1,6 @@
-# Fountain of Youth Medspa Website
+# Custom Beauty Med Studio Website
 
-A responsive Astro + Tailwind landing page for Fountain of Youth Spa & Laser Center.
+A responsive Astro + Tailwind landing page for Custom Beauty Med Studio.
 
 ## Commands
 
