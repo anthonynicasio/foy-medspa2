@@ -29,28 +29,28 @@ const videos = [
     title: "Tox treatment",
     id: "LxGYB9NqfYM",
     src: "/videos/tox-treatment.mp4",
-    poster: "/images/medspa/injectable-consult-portrait.png",
+    poster: "/images/medspa/calm-injectables-consult.png",
   },
   {
     label: "Injectables",
     title: "Injectables",
     id: "2STRyyGiEBc",
     src: "/videos/injectables.mp4",
-    poster: "/images/medspa/filler-treatment-cheek.png",
+    poster: "/images/medspa/injectables-botox-treatment.png",
   },
   {
     label: "Lip Filler",
     title: "Lip filler",
     id: "-nXrneYrUyA",
     src: "/videos/lip-filler.mp4",
-    poster: "/images/medspa/glowing-skin-hands-face.png",
+    poster: "/images/medspa/filler-injection.png",
   },
   {
     label: "More Treatments",
     title: "More treatments",
     id: "XTgyyV5YDc8",
     src: "/videos/more-treatments.mp4",
-    poster: "/images/medspa/natural-glow-portrait.png",
+    poster: "/images/medspa/glowing-asian-skin.png",
   },
 ];
 
@@ -61,7 +61,7 @@ const links = [
     text: "Schedule online through Mangomint.",
     href: bookingUrl,
     featured: true,
-    image: "/images/medspa/warm-group-portrait.png",
+    image: "/images/medspa/joyful-community-group.png",
     imagePosition: "object-[50%_42%]",
   },
   {
@@ -69,7 +69,7 @@ const links = [
     heading: "Save 10% Every Visit",
     text: "Join the membership for recurring care.",
     href: "https://clients.mangomint.com/fountainofyouthspa/memberships/29",
-    image: "/images/medspa/radiant-client-duo.png",
+    image: "/images/medspa/happy-skincare-friends.png",
     imagePosition: "object-[50%_38%]",
   },
   {
@@ -77,15 +77,15 @@ const links = [
     heading: "Send a Gift Card",
     text: "Give someone a treatment they can choose.",
     href: "https://clients.mangomint.com/gift-cards/737916",
-    image: "/images/medspa/face-roller-skincare.png",
-    imagePosition: "object-center",
+    image: "/images/medspa/facial-mask-duo.png",
+    imagePosition: "object-[50%_30%]",
   },
   {
     eyebrow: "Rewards",
     heading: "Earn on Injectables",
     text: "Access Xeomin Rewards through Merz Xperience+.",
     href: "https://app.xperiencemerz.com/",
-    image: "/images/medspa/injectable-consult-portrait.png",
+    image: "/images/medspa/calm-injectables-consult.png",
     imagePosition: "object-[52%_34%]",
   },
   {
@@ -93,7 +93,7 @@ const links = [
     heading: "Pay Over Time with CareCredit",
     text: "Explore financing for eligible services.",
     href: "https://www.carecredit.com/go/969ZGZ/",
-    image: "/images/medspa/clean-shoulder-portrait.png",
+    image: "/images/medspa/laser-underarm.png",
     imagePosition: "object-[52%_45%]",
   },
   {
@@ -101,15 +101,15 @@ const links = [
     heading: "Apply with Cherry",
     text: "Review Cherry payment plan options.",
     href: "https://pay.withcherry.com/fountainofyouthspalaser/?utm_source=mobilepracticeportal",
-    image: "/images/medspa/weight-loss-injection.png",
-    imagePosition: "object-[52%_52%]",
+    image: "/images/medspa/wellness-stretching.png",
+    imagePosition: "object-[52%_40%]",
   },
   {
     eyebrow: "Site",
     heading: "Explore the Full Site",
     text: "Visit the main Fountain of Youth website.",
     href: "https://fountainofyouthspalaser.com/",
-    image: "/images/medspa/botanical-clear-skin.png",
+    image: "/images/medspa/diversity-beauty-group.png",
     imagePosition: "object-[50%_42%]",
   },
   {
@@ -117,7 +117,7 @@ const links = [
     heading: "4.9 Stars on Google",
     text: "Read 223 client reviews or share your experience.",
     href: "https://g.page/r/CS_nA0tgMpSZEBE/review",
-    image: "/images/medspa/happy-skincare-duo.png",
+    image: "/images/medspa/smiling-skincare-friends.png",
     imagePosition: "object-[50%_38%]",
   },
   {
@@ -126,7 +126,7 @@ const links = [
     text: "Email the team directly.",
     href: `mailto:${email}`,
     external: false,
-    image: "/images/medspa/diverse-beauty-group.png",
+    image: "/images/medspa/diversity-beauty-group.png",
     imagePosition: "object-[50%_42%]",
   },
 ];
@@ -317,7 +317,7 @@ function LinksPage() {
               St. Augustine, FL · Jacksonville Beach, FL
             </p>
             <p className="mt-2 text-xs uppercase tracking-[0.24em] text-cream/45">
-              Concept design — not the official site
+              Concept design · unofficial site
             </p>
           </div>
 

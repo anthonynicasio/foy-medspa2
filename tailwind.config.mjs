@@ -54,9 +54,14 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.95)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        ticker: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'appear-zoom': 'appear-zoom 0.5s ease-out forwards',
+        ticker: 'ticker 30s linear infinite',
       },
     },
   },
