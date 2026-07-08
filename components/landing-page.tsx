@@ -201,13 +201,16 @@ function Reveal({ className, children, id }: { className?: string; children: Rea
 export function LandingPage() {
   return (
     <div className="surface-cream grain min-h-screen text-espresso">
-      <div className="surface-espresso px-4 py-2.5 text-center text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-cream/90 sm:text-xs">
+      <div className="surface-espresso px-4 py-2.5 text-center text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-cream/90 sm:text-xs sm:tracking-[0.28em]">
         Complimentary Consultations&ensp;·&ensp;Members Save 10% Every Visit
       </div>
 
       <header className="sticky top-0 z-50 border-b border-espresso/10 bg-cream/85 backdrop-blur-xl">
-        <div className="section-shell flex h-[4.5rem] items-center justify-between gap-6">
-          <a href="#" className="font-display text-[1.6rem] font-semibold leading-none tracking-tight">
+        <div className="section-shell flex h-[4.5rem] items-center justify-between gap-3 sm:gap-6">
+          <a
+            href="#"
+            className="shrink-0 font-display text-xl font-semibold leading-none tracking-tight sm:text-[1.6rem]"
+          >
             Fountain of Youth
           </a>
 
@@ -223,7 +226,7 @@ export function LandingPage() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <a
               href={phoneHref}
               className="hidden items-center gap-2 text-sm font-medium text-espresso/70 transition hover:text-espresso md:inline-flex"
@@ -235,14 +238,14 @@ export function LandingPage() {
               href={bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-espresso px-6 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-cream shadow-sm transition hover:bg-clay"
+              className="inline-flex h-10 items-center justify-center rounded-full bg-espresso px-4 text-[0.62rem] font-bold uppercase tracking-[0.14em] text-cream shadow-sm transition hover:bg-clay sm:h-11 sm:px-6 sm:text-[0.68rem] sm:tracking-[0.2em]"
             >
               Book Now
             </a>
             <button
               type="button"
               aria-label="Open menu"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-espresso/15 text-espresso transition hover:border-espresso/40 lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-espresso/15 text-espresso transition hover:border-espresso/40 sm:h-11 sm:w-11 lg:hidden"
             >
               <Menu className="h-5 w-5" strokeWidth={1.75} />
             </button>
@@ -255,7 +258,7 @@ export function LandingPage() {
           <div className="section-shell grid items-center gap-10 py-16 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-24">
             <div className="max-w-xl">
               <p className="eyebrow">Med Spa · St. Augustine, FL</p>
-              <h1 className="mt-6 font-display text-5xl font-medium leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
+              <h1 className="mt-6 font-display text-[2.75rem] font-medium leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
                 Naturally confident,
                 <br />
                 <em className="text-clay">expertly delivered.</em>

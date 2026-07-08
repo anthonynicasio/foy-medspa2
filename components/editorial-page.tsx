@@ -158,13 +158,13 @@ const label = 'text-[0.64rem] font-semibold uppercase tracking-[0.3em]';
 export function EditorialPage() {
   return (
     <div className="min-h-screen bg-white text-zinc-950">
-      <div className={`border-b border-zinc-950 px-4 py-2 text-center text-zinc-950 ${label}`}>
+      <div className="border-b border-zinc-950 px-4 py-2 text-center text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-zinc-950 sm:text-[0.64rem] sm:tracking-[0.3em]">
         Complimentary Consultations · Members Save 10% Every Visit
       </div>
 
       <header className="sticky top-0 z-50 border-b border-zinc-950 bg-white">
         <div className="mx-auto flex h-16 max-w-[90rem] items-stretch justify-between">
-          <a href="#" className="flex items-center border-r border-zinc-950 px-5 font-display text-xl font-semibold tracking-tight sm:px-8">
+          <a href="#" className="flex shrink-0 items-center border-r border-zinc-950 px-4 font-display text-lg font-semibold tracking-tight sm:px-8 sm:text-xl">
             Fountain of Youth
           </a>
           <nav className="hidden flex-1 items-center gap-10 px-10 lg:flex">
@@ -182,7 +182,7 @@ export function EditorialPage() {
             href={bookingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-2 bg-zinc-950 px-6 text-white transition hover:bg-zinc-700 sm:px-10 ${label}`}
+            className={`flex shrink-0 items-center gap-2 bg-zinc-950 px-4 text-white transition hover:bg-zinc-700 sm:px-10 ${label}`}
           >
             Book Now
             <ArrowUpRight className="h-4 w-4" />
@@ -278,7 +278,7 @@ export function EditorialPage() {
                   href={bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group border-b border-zinc-950 sm:[&:nth-child(odd)]:border-r lg:border-r lg:[&:nth-child(3n)]:border-r-0 ${
+                  className={`group border-b border-zinc-950 last:border-b-0 sm:[&:nth-child(odd)]:border-r lg:border-r lg:[&:nth-child(3n)]:border-r-0 ${
                     index >= treatments.length - 3 ? 'lg:border-b-0' : ''
                   } ${index >= treatments.length - 2 ? 'sm:border-b-0 lg:border-b-0' : ''}`}
                 >
