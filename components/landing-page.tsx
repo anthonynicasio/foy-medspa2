@@ -7,8 +7,6 @@ import {
   CalendarDays,
   Gem,
   Leaf,
-  Mail,
-  MapPin,
   Menu,
   Phone,
   Shield,
@@ -31,7 +29,6 @@ const navLinks = [
   { label: 'Experience', href: '#experience' },
   { label: 'Providers', href: '#providers' },
   { label: 'Membership', href: '#membership' },
-  { label: 'Visit', href: '#visit' },
 ];
 
 const treatments = [
@@ -450,15 +447,15 @@ export function LandingPage() {
 
         <Reveal id="membership" className="relative overflow-hidden">
           <img
-            src="/images/medspa/botanical-woman-portrait.png"
+            src="/images/medspa/glow-facial-treatment.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-[62%_40%]"
+            className="absolute inset-0 h-full w-full object-cover object-[30%_35%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-espresso/95 via-espresso/70 to-espresso/20" />
+          <div className="absolute inset-0 bg-gradient-to-l from-espresso/95 via-espresso/70 to-espresso/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 via-transparent to-espresso/30" />
           <div className="section-shell relative py-24 lg:py-32">
-            <div className="max-w-xl text-cream">
+            <div className="max-w-xl text-cream lg:ml-auto">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-blush">
                 <Gem className="mr-2 inline-block h-3.5 w-3.5 align-[-2px]" />
                 The Glow Plan Membership
@@ -579,51 +576,6 @@ export function LandingPage() {
                 Read 223 Reviews
                 <ArrowUpRight className="h-4 w-4" />
               </a>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal id="visit" className="py-20 lg:py-28">
-          <div className="section-shell">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="eyebrow">Visit Us</p>
-              <h2 className="mt-4 font-display text-4xl font-medium leading-none tracking-tight sm:text-5xl">
-                Our studio in St. Augustine
-              </h2>
-            </div>
-
-            <div className="mx-auto mt-12 max-w-2xl">
-              <article className="overflow-hidden rounded-[2rem] border border-white/70 bg-white/60 shadow-soft backdrop-blur-sm">
-                <img
-                  src="/images/medspa/smiling-skincare-friends.png"
-                  alt="Two happy clients laughing together"
-                  className="aspect-[16/7] w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div className="p-8 pt-6">
-                  <MapPin className="h-6 w-6 text-clay" strokeWidth={1.5} />
-                  <h3 className="mt-4 font-display text-3xl leading-tight">St. Augustine, FL</h3>
-                  <div className="mt-5 flex flex-col gap-2.5 text-sm text-espresso/70">
-                    <a href={phoneHref} className="inline-flex items-center gap-2 transition hover:text-espresso">
-                      <Phone className="h-4 w-4 text-clay" />
-                      {phone}
-                    </a>
-                    <a href={`mailto:${email}`} className="inline-flex items-center gap-2 transition hover:text-espresso">
-                      <Mail className="h-4 w-4 text-clay" />
-                      {email}
-                    </a>
-                  </div>
-                  <a
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-7 inline-flex h-12 items-center justify-center rounded-full bg-espresso px-7 text-[0.66rem] font-bold uppercase tracking-[0.2em] text-cream transition hover:bg-clay"
-                  >
-                    Book Your Visit
-                  </a>
-                </div>
-              </article>
             </div>
           </div>
         </Reveal>
